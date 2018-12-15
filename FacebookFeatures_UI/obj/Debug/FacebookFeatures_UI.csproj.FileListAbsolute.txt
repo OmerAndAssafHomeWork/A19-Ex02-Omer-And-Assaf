@@ -1,0 +1,85 @@
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.exe
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\bin\Debug\SotringFriends_UI.exe
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\bin\Debug\SotringFriends_UI.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\bin\Debug\SortingFriends_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\bin\Debug\Facebook.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csprojResolveAssemblyReference.cache
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.Properties.Resources.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.FacebookFeatures.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.exe
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SotringFriends_UI.exe
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SotringFriends_UI.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SortingFriends_Engine.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\Facebook.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.exe
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.pdb
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SotringFriends_UI.exe
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SotringFriends_UI.pdb
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SortingFriends_Engine.dll
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\Facebook.dll
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.Properties.Resources.resources
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.SortingFriendsControl.resources
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.FindBestFriendControl.resources
+C:\Users\user\Desktop\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.FacebookFeaturesForm.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.exe
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SotringFriends_UI.exe
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SotringFriends_UI.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SortingFriends_Engine.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\Facebook.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.FindBestFriendControl.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.FacebookFeaturesForm.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.SortingFriendsControl.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\FacebookFeatures_UI.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.FindBestFriendControl.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.FacebookFeaturesForm.resources
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SotringFriends_UI\obj\Debug\SotringFriends_UI.SortingFriendsControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.FindBestFriendControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.FacebookFeaturesForm.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SotringFriends_UI\obj\Debug\SotringFriends_UI.SortingFriendsControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\FacebookFeatures_UI.csprojResolveAssemblyReference.cache
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.FindBestFriendControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.FacebookFeaturesForm.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.Properties.Resources.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.SortingFriendsControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\FacebookFeatures_UI.csproj.GenerateResource.Cache
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\SotringFriends_UI.exe
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\SotringFriends_UI.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\SortingFriends_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\Facebook.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.exe
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.exe
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\SotringFriends_UI.exe
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\SotringFriends_UI.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\FacebookFeatures_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\Facebook.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\bin\Debug\FacebookFeatures_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\FacebookFeatures_UI.csprojResolveAssemblyReference.cache
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.FindBestFriendControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.FacebookFeaturesForm.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.Properties.Resources.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\SotringFriends_UI.SortingFriendsControl.resources
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_UI\obj\Debug\FacebookFeatures_UI.csproj.GenerateResource.Cache

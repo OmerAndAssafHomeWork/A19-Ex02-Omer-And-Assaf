@@ -1,0 +1,24 @@
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\bin\Debug\SortingFriends_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\bin\Debug\Facebook.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\obj\Debug\SortingFriends_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\obj\Debug\SortingFriends_Engine.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SortingFriends_Engine\bin\Debug\SortingFriends_Engine.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SortingFriends_Engine\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SortingFriends_Engine\bin\Debug\Facebook.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SortingFriends_Engine\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SortingFriends_Engine\obj\Debug\SortingFriends_Engine.dll
+C:\Users\user\Documents\GitHub\A19-Ex01-Omer-and-Assaf-\SortingFriends_Engine\obj\Debug\SortingFriends_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\SortingFriends_Engine\obj\Debug\FacebookFeatures_Engine.csprojResolveAssemblyReference.cache
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\bin\Debug\SortingFriends_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\bin\Debug\SortingFriends_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\bin\Debug\Facebook.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\obj\Debug\SortingFriends_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\obj\Debug\SortingFriends_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex01 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\obj\Debug\FacebookFeatures_Engine.csprojResolveAssemblyReference.cache
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\bin\Debug\FacebookFeatures_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\bin\Debug\FacebookFeatures_Engine.pdb
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\obj\Debug\FacebookFeatures_Engine.dll
+C:\Users\omer\Documents\Visual Studio 2015\Projects\Design Pattern\A19 Ex02 Omer 205706278 Assaf 311305098\FacebookFeatures_Engine\obj\Debug\FacebookFeatures_Engine.pdb
