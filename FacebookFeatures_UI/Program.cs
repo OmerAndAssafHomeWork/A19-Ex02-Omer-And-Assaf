@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SotringFriends_UI
+namespace FacebookFeatures_UI
 {
      public static class Program
      {

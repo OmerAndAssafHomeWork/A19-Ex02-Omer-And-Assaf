@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{04F50967-328C-42F2-9542-DC977E59E937}</ProjectGuid>
+    <ProjectGuid>{60DECBEB-35B5-40D6-B888-3379FB3BA903}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FacebookFeatures_Engine</RootNamespace>
-    <AssemblyName>FacebookFeatures_Engine</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>SingletonCreator</RootNamespace>
+    <AssemblyName>SingletonCreator</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -35,27 +35,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Facebook">
-      <HintPath>..\..\..\..\..\..\..\DLLs\Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\..\..\..\..\..\..\DLLs\FbGraphApiWrapper.dll</HintPath>
-    </Reference>
+    <Compile Include="Singleton.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="EngineManager.cs" />
-    <Compile Include="FacebookUser.cs" />
-    <Compile Include="FindBestFriendFeatureEngine.cs" />
-    <Compile Include="IFilterSort.cs" />
-    <Compile Include="SortingBy.cs" />
-    <Compile Include="SortingFriendsFeatureEngine.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SingletonCreator\SingletonCreator.csproj">
-      <Project>{60decbeb-35b5-40d6-b888-3379fb3ba903}</Project>
-      <Name>SingletonCreator</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

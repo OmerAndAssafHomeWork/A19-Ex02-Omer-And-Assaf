@@ -4,19 +4,20 @@ using System.Windows.Forms;
 using FacebookFeatures_Engine;
 using System.Threading;
 
-namespace SotringFriends_UI
+namespace FacebookFeatures_UI
 {
      public partial class FacebookFeaturesForm : Form
      {
-          private FeaturesEngine m_FeaturesEngine = new FeaturesEngine();
-          private SortingFriendsControl m_SortingFriends;
-          private FindBestFriendControl m_FindBestFriend;
+          private EngineManager m_EngineManager;
+          private FeaturesFacade m_FeatureFacade;
 
           public FacebookFeaturesForm()
           {
                InitializeComponent();
                pictureBoxLoginStatus.BackgroundImage = Properties.Resources.red_light_no_background;
                pictureBoxLoginStatus.BackgroundImageLayout = ImageLayout.Stretch;
+               m_FeatureFacade = new FeaturesFacade(panelFacebookAppScreen);
+               m_EngineManager = EngineManager.GetEngineManager();
           }
 
           private void loginUser()
@@ -25,14 +26,12 @@ namespace SotringFriends_UI
 
                try
                {
-                    this.Invoke(new Action(()=> m_FeaturesEngine.LoginUser()));
-                    if (m_FeaturesEngine.UserConnected())
+                    this.Invoke(new Action(()=> m_EngineManager.LoginUser()));
+                    if (m_EngineManager.UserConnected())
                     {
                          changeButtonMeaning(Properties.Resources.green_circle, logoutButton_Click, loginButton_Click, Properties.Resources.logout);
-                         m_SortingFriends = new SortingFriendsControl(m_FeaturesEngine);
-                         m_FindBestFriend = new FindBestFriendControl(m_FeaturesEngine);
                          addDefualtControls();
-                         labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Hi {m_FeaturesEngine.GetLoginUserName()}"));
+                         labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Hi {m_EngineManager.GetLoginUserName()}"));
                          labelSecondUserMessage.Invoke(new Action(() =>labelSecondUserMessage.Text = $"We invite you to select a feature"));
                          pictureBoxMainScreen.BackgroundImage = Properties.Resources.Welcome;
                     }
@@ -62,43 +61,12 @@ namespace SotringFriends_UI
 
           private void buttonSortingFriends_Click(object sender, EventArgs e)
           {
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
-               new Thread(displaySortingFriendsFeature).Start();
-          }
-
-          private void displaySortingFriendsFeature()
-          {
-               if (m_FeaturesEngine.UserConnected())
-               {
-                    panelFacebookAppScreen.Invoke(new Action(() => panelFacebookAppScreen.Controls.Clear()));
-                    panelFacebookAppScreen.Invoke(new Action(() => panelFacebookAppScreen.Controls.Add(m_SortingFriends)));
-                    m_SortingFriends.FetchFriends();
-               }
-               else
-               {
-                    this.Invoke(new Action(() => MessageBox.Show(Common.NoConnectionToFacebook)));
-               }
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
+               m_FeatureFacade.ExecuteFeature(FeaturesTypeEnum.SortingFriends);
           }
 
           private void buttonFindBestFriend_Click(object sender, EventArgs e)
           {
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
-               new Thread(displayFindBestFriendFeature).Start();
-          }
-
-          private void displayFindBestFriendFeature()
-          {
-               if (m_FeaturesEngine.UserConnected())
-               {
-                    panelFacebookAppScreen.Invoke(new Action(()=> panelFacebookAppScreen.Controls.Clear()));
-                    panelFacebookAppScreen.Invoke(new Action(()=> panelFacebookAppScreen.Controls.Add(m_FindBestFriend)));
-               }
-               else
-               {
-                    this.Invoke(new Action(() => MessageBox.Show(Common.NoConnectionToFacebook)));
-               }
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
+               m_FeatureFacade.ExecuteFeature(FeaturesTypeEnum.FindBestFriend);
           }
 
           private void logoutButton_Click(object sender, EventArgs e)
@@ -110,8 +78,8 @@ namespace SotringFriends_UI
           {
                try
                {
-                    labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Bye {m_FeaturesEngine.GetLoginUserName()}"));
-                    this.Invoke(new Action(() => m_FeaturesEngine.LogoutUser()));
+                    labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Bye {m_EngineManager.GetLoginUserName()}"));
+                    this.Invoke(new Action(() => m_EngineManager.LogoutUser()));
                     changeButtonMeaning(Properties.Resources.red_light_no_background, loginButton_Click, logoutButton_Click, Properties.Resources.login);
                     panelFacebookAppScreen.Invoke(new Action(() => panelFacebookAppScreen.Controls.Clear()));
                     addDefualtControls();

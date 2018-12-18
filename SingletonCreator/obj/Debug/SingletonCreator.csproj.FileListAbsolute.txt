@@ -1,0 +1,5 @@
+C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\SingletonCreator\bin\Debug\SingletonCreator.dll
+C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\SingletonCreator\bin\Debug\SingletonCreator.pdb
+C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\SingletonCreator\obj\Debug\SingletonCreator.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\SingletonCreator\obj\Debug\SingletonCreator.dll
+C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\SingletonCreator\obj\Debug\SingletonCreator.pdb

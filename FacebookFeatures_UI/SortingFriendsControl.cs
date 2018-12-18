@@ -5,25 +5,25 @@ using FacebookFeatures_Engine;
 using eSortingByEnum;
 using System.Threading;
 
-namespace SotringFriends_UI
+namespace FacebookFeatures_UI
 {
      public delegate void getAttributeInfo();
      public partial class SortingFriendsControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private FeaturesEngine m_FeaturesEngine = null;
+          private EngineManager m_Engine = null;
           private int m_currentFriendIndex = k_InitialValue;
           private event getAttributeInfo GetAttributeInfoNotifier;
 
-          public SortingFriendsControl(FeaturesEngine i_FeaturesEngine)
+          public SortingFriendsControl()
           {
                InitializeComponent();
-               m_FeaturesEngine = i_FeaturesEngine;
+               m_Engine = EngineManager.GetEngineManager();
           }
 
           private void disableFirstFeatureControls()
           {
-               setVisibilityControls(
+               Common.setVisibilityControls(
                     false,
                     pictureBoxFriend,
                     placeHolderLabel,
@@ -44,7 +44,7 @@ namespace SotringFriends_UI
           public void FetchFriends()
           {
                List<string> g = new List<string>();
-               List<string> friendsName = m_FeaturesEngine.GetFriends();
+               List<string> friendsName = m_Engine.GetFriends();
                listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Clear()));
                foreach (string friendName in friendsName)
                {
@@ -56,7 +56,7 @@ namespace SotringFriends_UI
           {
                string picture = null;
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string post = m_FeaturesEngine.GetPost(m_currentFriendIndex, ref picture);
+               string post = m_Engine.GetPost(m_currentFriendIndex, ref picture);
                if (post != null)
                {
                     labelAttributePlaceHolder.Invoke(new Action(() => labelAttributePlaceHolder.Text = post));
@@ -77,7 +77,7 @@ namespace SotringFriends_UI
           private string getTags()
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string tag = m_FeaturesEngine.GetTag(m_currentFriendIndex);
+               string tag = m_Engine.GetTag(m_currentFriendIndex);
 
                if (tag != null)
                {
@@ -93,7 +93,7 @@ namespace SotringFriends_UI
           private string getCheckin()
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string checkin = m_FeaturesEngine.GetCheckin(m_currentFriendIndex);
+               string checkin = m_Engine.GetCheckin(m_currentFriendIndex);
 
                if (checkin != null)
                {
@@ -109,14 +109,14 @@ namespace SotringFriends_UI
           private string getAlbumDetails()
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string photoFromAlbum = m_FeaturesEngine.GetPictureFromAlbum(m_currentFriendIndex);
+               string photoFromAlbum = m_Engine.GetPictureFromAlbum(m_currentFriendIndex);
 
                if (photoFromAlbum != null)
                {
                     pictureBoxAlbumPhoto.LoadAsync(photoFromAlbum);
-                    labelAttributePlaceHolder.Invoke(new Action (() => labelAttributePlaceHolder.Text = m_FeaturesEngine.GetAlbumName(m_currentFriendIndex)));
-                    labelPhotoTitle.Invoke(new Action (() => labelPhotoTitle.Text = m_FeaturesEngine.GetPictureTitle(m_currentFriendIndex)));
-                    setVisibilityControls(
+                    labelAttributePlaceHolder.Invoke(new Action (() => labelAttributePlaceHolder.Text = m_Engine.GetAlbumName(m_currentFriendIndex)));
+                    labelPhotoTitle.Invoke(new Action (() => labelPhotoTitle.Text = m_Engine.GetPictureTitle(m_currentFriendIndex)));
+                    Common.setVisibilityControls(
                          true,
                          pictureBoxAlbumPhoto,
                          labelAttributePlaceHolder,
@@ -137,23 +137,15 @@ namespace SotringFriends_UI
                }
           }
 
-          private void setVisibilityControls(bool i_Visiblity, params Control[] i_ControlsList)
-          {
-               foreach (Control currentControl in i_ControlsList)
-               {
-                    currentControl.Invoke(new Action(() => currentControl.Visible = i_Visiblity));
-               }
-          }
-
           private void disableAlbum(string i_Error)
           {
-               setVisibilityControls(false, labelAttributePlaceHolder, labelPhotoTitle, buttonNextPlaceHolder, buttonPrevPlaceHolder, buttonPrevPicture, buttonNextPicture);
-               this.Invoke(new Action(() => MessageBox.Show(i_Error)));
+               Common.setVisibilityControls(false, labelAttributePlaceHolder, labelPhotoTitle, buttonNextPlaceHolder, buttonPrevPlaceHolder, buttonPrevPicture, buttonNextPicture);
+               this.Invoke(new Action(() => MessageBox.Show(i_Error)));///Move to common
           }
 
           private void suitFunctionalityBySelectedIndex()
           {
-               m_FeaturesEngine.InitialAlbumIndexes();
+               m_Engine.InitialAlbumIndexes();
                eSortingBy userChoice = eSortingBy.Default;
                comboBoxSortingOptions.Invoke(new Action(() => userChoice = (eSortingBy)comboBoxSortingOptions.SelectedIndex));
                switch (userChoice)
@@ -236,7 +228,7 @@ namespace SotringFriends_UI
                     clearButtonsEvents(buttonNextPicture, buttonPrevPicture, buttonNextPlaceHolder, buttonPrevPlaceHolder);
                     int selectedIndex = k_InitialValue;
                     listBoxFriends.Invoke(new Action(() => selectedIndex = listBoxFriends.SelectedIndex));
-                    string friendImageURL = m_FeaturesEngine.GetFriendPicture(selectedIndex);
+                    string friendImageURL = m_Engine.GetFriendPicture(selectedIndex);
                     if (friendImageURL != null)
                     {
                          Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
@@ -262,7 +254,7 @@ namespace SotringFriends_UI
                int userOptionIndex = k_InitialValue;
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
                comboBoxSortingOptions.Invoke(new Action(() => userOptionIndex = comboBoxSortingOptions.SelectedIndex));
-               string attribute = m_FeaturesEngine.GetFriendBirthdayOrAgeAttribute(m_currentFriendIndex, userOptionIndex);
+               string attribute = m_Engine.GetFriendBirthdayOrAgeAttribute(m_currentFriendIndex, userOptionIndex);
 
                if (attribute != null)
                {
@@ -279,7 +271,7 @@ namespace SotringFriends_UI
           {
                const string k_PrevTag = "Prev Tag", k_NextTag = "Next Tag";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string tagsWerentFoundMessage = $"{m_FeaturesEngine.GetFriendFirstName(m_currentFriendIndex)} doesn't have Tags";
+               string tagsWerentFoundMessage = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} doesn't have Tags";
 
                if (getTags() != null)
                {
@@ -287,12 +279,12 @@ namespace SotringFriends_UI
                     buttonNextPlaceHolder.Invoke(new Action(() => buttonNextPlaceHolder.Text = k_NextTag));
                     buttonPrevPlaceHolder.Click += buttonPrevTag_Click;
                     buttonNextPlaceHolder.Click += buttonNextTag_Click;
-                    setVisibilityControls(true, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
+                    Common.setVisibilityControls(true, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
                }
                else
                {
                     this.Invoke(new Action (() =>MessageBox.Show(tagsWerentFoundMessage)));
-                    setVisibilityControls(false, buttonPrevPicture, buttonNextPicture);
+                    Common.setVisibilityControls(false, buttonPrevPicture, buttonNextPicture);
                }
           }
 
@@ -300,19 +292,19 @@ namespace SotringFriends_UI
           {
                const string k_PrevCheckin = "Prev Checkin", k_NextCheckin = "Next Checkin";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string checkinsWerentFound = $"{m_FeaturesEngine.GetFriendFirstName(m_currentFriendIndex)} doesn't have checkins";
+               string checkinsWerentFound = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} doesn't have checkins";
                if (getCheckin() != null)
                {
                     buttonPrevPlaceHolder.Invoke(new Action(() => buttonPrevPlaceHolder.Text = k_PrevCheckin));
                     buttonNextPlaceHolder.Invoke(new Action(() => buttonNextPlaceHolder.Text = k_NextCheckin));
                     buttonPrevPlaceHolder.Click += buttonPrevCheckIn_Click;
                     buttonNextPlaceHolder.Click += buttonNextCheckIn_Click;
-                    setVisibilityControls(true, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
+                    Common.setVisibilityControls(true, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
                }
                else
                {
                     this.Invoke(new Action (() =>MessageBox.Show(checkinsWerentFound)));
-                    setVisibilityControls(false, buttonPrevPicture, buttonNextPicture);
+                    Common.setVisibilityControls(false, buttonPrevPicture, buttonNextPicture);
                }
           }
 
@@ -320,19 +312,19 @@ namespace SotringFriends_UI
           {
                const string k_PrevPost = "Prev Post", k_NextPost = "Next Post";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string postsWerentFound = $"{m_FeaturesEngine.GetFriendFirstName(m_currentFriendIndex)} doesn't have posts";
+               string postsWerentFound = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} doesn't have posts";
                if (getPosts() != null)
                {
                     buttonPrevPlaceHolder.Invoke(new Action(() => buttonPrevPlaceHolder.Text = k_PrevPost));
                     buttonNextPlaceHolder.Invoke(new Action(() => buttonNextPlaceHolder.Text = k_NextPost));
                     buttonPrevPlaceHolder.Click += buttonPrevPost_Click;
                     buttonNextPlaceHolder.Click += buttonNextPost_Click;
-                    setVisibilityControls(true, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
+                    Common.setVisibilityControls(true, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
                }
                else
                {
                     this.Invoke(new Action (() =>MessageBox.Show(postsWerentFound)));
-                    setVisibilityControls(false, labelAttributePlaceHolder, buttonPrevPicture, buttonNextPicture);
+                    Common.setVisibilityControls(false, labelAttributePlaceHolder, buttonPrevPicture, buttonNextPicture);
                }
           }
 
@@ -340,7 +332,7 @@ namespace SotringFriends_UI
           {
                const string prevAlbum = "Prev Album", nextAlbum = "Next Album";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string albumsWerentFoundMessage = $"{m_FeaturesEngine.GetFriendFirstName(m_currentFriendIndex)} selected doesn't have albums";
+               string albumsWerentFoundMessage = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} selected doesn't have albums";
                if (getAlbumDetails() != null)
                {
                     buttonNextPlaceHolder.Invoke(new Action(() => buttonNextPlaceHolder.Text = nextAlbum));
@@ -349,7 +341,7 @@ namespace SotringFriends_UI
                     buttonPrevPlaceHolder.Click += buttonPrevAlbum_Click;
                     buttonNextPicture.Click += buttonNextPicture_Click;
                     buttonPrevPicture.Click += buttonPrevPicture_Click;
-                    setVisibilityControls(true, labelPhotoTitle, buttonNextPicture, buttonPrevPicture, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
+                    Common.setVisibilityControls(true, labelPhotoTitle, buttonNextPicture, buttonPrevPicture, labelAttributePlaceHolder, buttonPrevPlaceHolder, buttonNextPlaceHolder);
                }
                else
                {
@@ -376,10 +368,10 @@ namespace SotringFriends_UI
                try
                {
                     int currentUserSortingChoice = k_InitialValue;
-                    if (m_FeaturesEngine.UserConnected())
+                    if (m_Engine.UserConnected())
                     {
                          listBoxFriends.Invoke(new Action(() => currentUserSortingChoice = comboBoxSortingOptions.SelectedIndex));
-                         m_FeaturesEngine.Sort(currentUserSortingChoice);
+                         m_Engine.Sort(currentUserSortingChoice);
                          clearButtonsEvents(buttonNextPlaceHolder, buttonPrevPlaceHolder, buttonNextPicture, buttonPrevPicture);
                          FetchFriends();
                          disableFirstFeatureControls();
@@ -411,7 +403,7 @@ namespace SotringFriends_UI
           private void setPrevAlbum()
           {
                const string k_FirstAlbumError = "You are in the first album";
-               if (m_FeaturesEngine.SetPrevPlaceHolderIndex())
+               if (m_Engine.SetPrevPlaceHolderIndex())
                {
                     getAlbumDetails();
                }
@@ -432,7 +424,7 @@ namespace SotringFriends_UI
           {
                const string k_LastAlbumError = "You are in the last album";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               if (m_FeaturesEngine.SetNextAlbumIndex(m_currentFriendIndex))
+               if (m_Engine.SetNextAlbumIndex(m_currentFriendIndex))
                {
                     getAlbumDetails();
                }
@@ -452,7 +444,7 @@ namespace SotringFriends_UI
           private void setPrevPicture()
           {
                const string k_FirstPictureError = "You are in the first picture album";
-               if (m_FeaturesEngine.SetPrevPictureAlbumIndex())
+               if (m_Engine.SetPrevPictureAlbumIndex())
                {
                     getAlbumDetails();
                }
@@ -474,7 +466,7 @@ namespace SotringFriends_UI
           {
                const string k_LastPictureError = "You are in the last picture album";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               if (m_FeaturesEngine.SetNextPictureAlbumIndex(m_currentFriendIndex))
+               if (m_Engine.SetNextPictureAlbumIndex(m_currentFriendIndex))
                {
                     getAlbumDetails();
                }
@@ -495,7 +487,7 @@ namespace SotringFriends_UI
           private void setPrevCheckin()
           {
                const string k_FirstCheckinError = "You are in the first checkin";
-               if (m_FeaturesEngine.SetPrevPlaceHolderIndex())
+               if (m_Engine.SetPrevPlaceHolderIndex())
                {
                     getCheckin();
                }
@@ -516,7 +508,7 @@ namespace SotringFriends_UI
           {
                const string k_LastCheckinError = "You are in the last checkin";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               if (m_FeaturesEngine.SetNextCheckinIndex(m_currentFriendIndex))
+               if (m_Engine.SetNextCheckinIndex(m_currentFriendIndex))
                {
                     getCheckin();
                }
@@ -536,7 +528,7 @@ namespace SotringFriends_UI
           private void setPrevPost()
           {
                const string k_FirstPostError = "You are in the first post";
-               if (m_FeaturesEngine.SetPrevPlaceHolderIndex())
+               if (m_Engine.SetPrevPlaceHolderIndex())
                {
                     getPosts();
                }
@@ -557,7 +549,7 @@ namespace SotringFriends_UI
           private void setNextPost()
           {
                const string k_LastPostError = "You are in the last post";
-               if (m_FeaturesEngine.SetNextPostIndex(listBoxFriends.SelectedIndex))
+               if (m_Engine.SetNextPostIndex(listBoxFriends.SelectedIndex))
                {
                     getPosts();
                }
@@ -578,7 +570,7 @@ namespace SotringFriends_UI
           private void setPrevTag()
           {
                const string k_FirstTagError = "You are in the first tag";
-               if (m_FeaturesEngine.SetPrevPlaceHolderIndex())
+               if (m_Engine.SetPrevPlaceHolderIndex())
                {
                     getTags();
                }
@@ -592,12 +584,13 @@ namespace SotringFriends_UI
           {
                GetAttributeInfoNotifier += setNextTag;
                setAttribute("Next Tag");
-               GetAttributeInfoNotifier -= setNextTag;          }
+               GetAttributeInfoNotifier -= setNextTag;
+          }
 
           private void setNextTag()
           {
                const string k_LastTagError = "You are in the last tag";
-               if (m_FeaturesEngine.SetNextTagIndex(listBoxFriends.SelectedIndex))
+               if (m_Engine.SetNextTagIndex(listBoxFriends.SelectedIndex))
                {
                     getTags();
                }

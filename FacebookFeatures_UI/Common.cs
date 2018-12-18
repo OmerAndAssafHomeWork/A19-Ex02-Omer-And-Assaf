@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SotringFriends_UI
+namespace FacebookFeatures_UI
 {
      public class Common
      {
@@ -16,6 +16,14 @@ namespace SotringFriends_UI
           public static string s_CurrentCalculationSortingFriendsFeature { set; get; }
           public static int s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature { set; get; }
           public static string s_CurrentCalculationFindBestFriendFeature { set; get; }
+
+          public static void setVisibilityControls(bool i_Visiblity, params Control[] i_ControlsList)
+          {
+               foreach (Control currentControl in i_ControlsList)
+               {
+                    currentControl.Invoke(new Action(() => currentControl.Visible = i_Visiblity));
+               }
+          }
 
           public static void ClearEvents(Control i_Control)
           {

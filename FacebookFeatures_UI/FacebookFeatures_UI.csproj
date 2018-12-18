@@ -7,8 +7,8 @@
     <ProjectGuid>{B207511B-3765-4EF8-8609-C5727B037ADE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SotringFriends_UI</RootNamespace>
-    <AssemblyName>SotringFriends_UI</AssemblyName>
+    <RootNamespace>FacebookFeatures_UI</RootNamespace>
+    <AssemblyName>FacebookFeatures_UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,6 +47,8 @@
     <Compile Include="Common.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="FeaturesFacade.cs" />
+    <Compile Include="FeaturesTypeEnum.cs" />
     <Compile Include="FindBestFriendControl.cs">
       <SubType>UserControl</SubType>
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
@@ -125,6 +127,9 @@
     <None Include="Resources\prev arrow.png" />
     <Content Include="Resources\red light no background.png" />
     <None Include="Resources\red_noBackground.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -3,22 +3,23 @@ using System.Windows.Forms;
 using FacebookFeatures_Engine;
 using System.Threading;
 
-namespace SotringFriends_UI
+namespace FacebookFeatures_UI
 {
      public partial class FindBestFriendControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private FeaturesEngine m_FeaturesEngine = null;
-
-          public FindBestFriendControl(FeaturesEngine i_FeaturesEngine)
+          private EngineManager m_Engine;
+          private Common m_Common;
+          
+          public FindBestFriendControl()
           {
                InitializeComponent();
-               m_FeaturesEngine = i_FeaturesEngine;
+               m_Engine = EngineManager.GetEngineManager();
           }
 
           private void disableSecondFeatureControls()
           {
-               setVisibilityControls(
+               Common.setVisibilityControls(
                     false,
                     labelFullName,
                     labelBirthdayDate,
@@ -46,13 +47,6 @@ namespace SotringFriends_UI
                disableSecondFeatureControls();
           }
 
-          private void setVisibilityControls(bool i_Visiblity, params Control[] i_ControlsList)
-          {
-               foreach (Control currentControl in i_ControlsList)
-               {
-                    currentControl.Invoke(new Action(() => currentControl.Visible = i_Visiblity));
-               }
-          }
 
           private void buttonFindBestFriend_Click(object sender, EventArgs e)
           {
@@ -72,17 +66,17 @@ namespace SotringFriends_UI
           {
                const string k_NoExistFriendWithBirthday = "You don't have friends who have birthday in four months";
 
-               if (m_FeaturesEngine.UserConnected())
+               if (m_Engine.UserConnected())
                {
-                    int bestFriendIndex = m_FeaturesEngine.FindBestFriend();
+                    int bestFriendIndex = m_Engine.FindBestFriend();
 
                     if (bestFriendIndex != k_BestFriendNotFoundIndex)
                     {
-                         setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAlbumsText, labelGenderText, labelBestFriendNameText, pictureBoxBestFriendPicture, labelBirthdayDateText, labelMostTaggedUserText, labelMostTaggedCheckinText);
-                         labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_FeaturesEngine.GetBestFriendAmountOfAlbums().ToString()));
-                         labelGenderText.Invoke(new Action(() => labelGenderText.Text = m_FeaturesEngine.GetBestFriendGender()));
-                         labelBestFriendNameText.Invoke(new Action(() => labelBestFriendNameText.Text = m_FeaturesEngine.GetBestFriendFullName()));
-                         pictureBoxBestFriendPicture.LoadAsync(m_FeaturesEngine.GetFriendPicture(bestFriendIndex));
+                         Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAlbumsText, labelGenderText, labelBestFriendNameText, pictureBoxBestFriendPicture, labelBirthdayDateText, labelMostTaggedUserText, labelMostTaggedCheckinText);
+                         labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_Engine.GetBestFriendAmountOfAlbums().ToString()));
+                         labelGenderText.Invoke(new Action(() => labelGenderText.Text = m_Engine.GetBestFriendGender()));
+                         labelBestFriendNameText.Invoke(new Action(() => labelBestFriendNameText.Text = m_Engine.GetBestFriendFullName()));
+                         pictureBoxBestFriendPicture.LoadAsync(m_Engine.GetFriendPicture(bestFriendIndex));
                          setMostTaggedUserTextLabel();
                          setMostCheckInTextLabel();
                     }
@@ -101,7 +95,7 @@ namespace SotringFriends_UI
           private void setMostCheckInTextLabel()
           {
                const string k_NoDataAvailable = "CheckIn data is not available";
-               string bestFriendMostTopCheckIn = m_FeaturesEngine.GetBestFriendTopCheckIn();
+               string bestFriendMostTopCheckIn = m_Engine.GetBestFriendTopCheckIn();
 
                if (bestFriendMostTopCheckIn != null)
                {
@@ -116,7 +110,7 @@ namespace SotringFriends_UI
           private void setMostTaggedUserTextLabel()
           {
                const string k_NoDataAvailable = "No tags available";
-               string bestFriendMostTaggedUser = m_FeaturesEngine.GetBestFriendTopTag();
+               string bestFriendMostTaggedUser = m_Engine.GetBestFriendTopTag();
 
                if (bestFriendMostTaggedUser != null)
                {
@@ -145,9 +139,9 @@ namespace SotringFriends_UI
           private void createEvent()
           {
                const string k_BestFriendDidntFetchMessage = "First you need to find your best friend";
-               if (m_FeaturesEngine.UserConnected())
+               if (m_Engine.UserConnected())
                {
-                    if (m_FeaturesEngine.IsBestFriendExist())
+                    if (m_Engine.IsBestFriendExist())
                     {
                          createBirthdayEvent();
                     }
@@ -172,7 +166,7 @@ namespace SotringFriends_UI
                     string location = null;
                     textBoxDescirption.Invoke(new Action(() => description = textBoxDescirption.Text));
                     textBoxLocation.Invoke(new Action(() => location = textBoxLocation.Text));
-                    m_FeaturesEngine.CreateEvent(description, location);
+                    m_Engine.CreateEvent(description, location);
                     textBoxDescirption.Invoke(new Action(() => textBoxDescirption.Text = string.Empty));
                     textBoxLocation.Invoke(new Action(() => textBoxLocation.Text = string.Empty));
                     MessageBox.Show(k_EventCreatedMessage);
