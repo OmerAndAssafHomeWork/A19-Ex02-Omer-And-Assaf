@@ -21,19 +21,41 @@ namespace FacebookFeatures_Engine
           public int FindBestFriend()
           {
                int bestFriendIndex = k_BestFriendNotFound;
-               Dictionary<FacebookUser, int> friendsHierarchy = new Dictionary<FacebookUser, int>();
-               foreach (FacebookUser friend in m_Friends)
+               if(m_BestFriend == null)
                {
-                    foreach (Post currentPost in friend.Posts)
+                    Dictionary<FacebookUser, int> friendsHierarchy = new Dictionary<FacebookUser, int>();
+                    foreach (FacebookUser friend in m_Friends)
                     {
-                         updateBestFriendDictionaryByLikePost(currentPost, friendsHierarchy, friend);
-                         updateBestFriendDictionaryByCommentPost(currentPost, friendsHierarchy, friend);
-                         updateBestFriendDictionaryByWithUsersPost(currentPost, friendsHierarchy, friend);
-                         updateBestFriendDictionaryByTargetUsersPost(currentPost, friendsHierarchy, friend);
+                         foreach (Post currentPost in friend.Posts)
+                         {
+                              updateBestFriendDictionaryByLikePost(currentPost, friendsHierarchy, friend);
+                              updateBestFriendDictionaryByCommentPost(currentPost, friendsHierarchy, friend);
+                              updateBestFriendDictionaryByWithUsersPost(currentPost, friendsHierarchy, friend);
+                              updateBestFriendDictionaryByTargetUsersPost(currentPost, friendsHierarchy, friend);
+                         }
                     }
+
+                    bestFriendIndex = searchForBestFriendAfterAnalyzing(friendsHierarchy);
+               }
+               else
+               {
+                    bestFriendIndex = searchBestFriendIndex();
                }
 
-               bestFriendIndex = searchForBestFriendAfterAnalyzing(friendsHierarchy);
+               return bestFriendIndex;
+          }
+
+          private int searchBestFriendIndex()
+          {
+               int bestFriendIndex = k_BestFriendNotFound;
+               foreach (FacebookUser friend in m_Friends)
+               {
+                    bestFriendIndex++;
+                    if(m_Friends[bestFriendIndex].Id == m_BestFriend.Id)
+                    {
+                         break;
+                    }
+               }
 
                return bestFriendIndex;
           }

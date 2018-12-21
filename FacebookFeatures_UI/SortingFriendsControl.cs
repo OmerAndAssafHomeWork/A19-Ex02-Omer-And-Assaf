@@ -11,14 +11,14 @@ namespace FacebookFeatures_UI
      public partial class SortingFriendsControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private EngineManager m_Engine = null;
+          private ManagerProxy m_Engine = null;
           private int m_currentFriendIndex = k_InitialValue;
           private event getAttributeInfo GetAttributeInfoNotifier;
 
           public SortingFriendsControl()
           {
                InitializeComponent();
-               m_Engine = EngineManager.GetEngineManager();
+               m_Engine = ManagerProxy.GetEngineManager();
           }
 
           private void disableFirstFeatureControls()
@@ -110,7 +110,7 @@ namespace FacebookFeatures_UI
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
                string photoFromAlbum = m_Engine.GetPictureFromAlbum(m_currentFriendIndex);
-
+               
                if (photoFromAlbum != null)
                {
                     pictureBoxAlbumPhoto.LoadAsync(photoFromAlbum);

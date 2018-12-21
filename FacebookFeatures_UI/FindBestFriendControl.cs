@@ -8,13 +8,13 @@ namespace FacebookFeatures_UI
      public partial class FindBestFriendControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private EngineManager m_Engine;
+          private ManagerProxy m_Engine;
           private Common m_Common;
           
           public FindBestFriendControl()
           {
                InitializeComponent();
-               m_Engine = EngineManager.GetEngineManager();
+               m_Engine = ManagerProxy.GetEngineManager();
           }
 
           private void disableSecondFeatureControls()

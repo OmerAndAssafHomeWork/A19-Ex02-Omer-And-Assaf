@@ -14,12 +14,12 @@ namespace FacebookFeatures_UI
           private FindBestFriendControl m_FindBestFriend;
           private Control m_ContainerScreen;
           private Common m_Common;
-          private EngineManager m_EngineManager;
+          private ManagerProxy m_EngineManager;
 
           public FeaturesFacade(Control i_ContainerScreen)
           {
                m_ContainerScreen = i_ContainerScreen;
-               m_EngineManager = EngineManager.GetEngineManager();
+               m_EngineManager = ManagerProxy.GetEngineManager();
                m_SortingFriends = new SortingFriendsControl();
                m_FindBestFriend = new FindBestFriendControl();
           }

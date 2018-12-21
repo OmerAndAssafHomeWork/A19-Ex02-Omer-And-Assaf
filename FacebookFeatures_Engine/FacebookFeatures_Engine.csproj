@@ -48,6 +48,9 @@
     <Compile Include="FacebookUser.cs" />
     <Compile Include="FindBestFriendFeatureEngine.cs" />
     <Compile Include="IFilterSort.cs" />
+    <Compile Include="IManager.cs" />
+    <Compile Include="LoggedInUserData.cs" />
+    <Compile Include="ManagerProxy.cs" />
     <Compile Include="SortingBy.cs" />
     <Compile Include="SortingFriendsFeatureEngine.cs" />
   </ItemGroup>

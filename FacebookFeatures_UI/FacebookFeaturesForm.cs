@@ -8,7 +8,7 @@ namespace FacebookFeatures_UI
 {
      public partial class FacebookFeaturesForm : Form
      {
-          private EngineManager m_EngineManager;
+          private ManagerProxy m_EngineManager;
           private FeaturesFacade m_FeatureFacade;
 
           public FacebookFeaturesForm()
@@ -17,7 +17,7 @@ namespace FacebookFeatures_UI
                pictureBoxLoginStatus.BackgroundImage = Properties.Resources.red_light_no_background;
                pictureBoxLoginStatus.BackgroundImageLayout = ImageLayout.Stretch;
                m_FeatureFacade = new FeaturesFacade(panelFacebookAppScreen);
-               m_EngineManager = EngineManager.GetEngineManager();
+               m_EngineManager = ManagerProxy.GetEngineManager();
           }
 
           private void loginUser()

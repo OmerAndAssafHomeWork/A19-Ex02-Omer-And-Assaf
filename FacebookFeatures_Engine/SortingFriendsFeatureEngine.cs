@@ -205,7 +205,6 @@ namespace FacebookFeatures_Engine
           public bool SetNextPictureAlbumIndex(int i_FriendIndex)
           {
                bool setNextPictureInAlbumSucceed = false;
-
                if (m_AlbumPictureIndex + 1 < m_Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos.Count)
                {
                     setNextPictureInAlbumSucceed = true;

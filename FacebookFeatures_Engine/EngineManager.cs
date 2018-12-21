@@ -10,17 +10,17 @@ using SingletonCreator;
 
 namespace FacebookFeatures_Engine
 {
-     public class EngineManager
+     public class EngineManager: IManager
      {
           private readonly object r_LogoutObjectContext = new object();
           private const int k_CollectionsLimit = 20;
           private const string k_AppId = "1027335734116799", k_PublicProfile = "public_profile", k_UsersFriend = "user_friends",
               k_UserBirthday = "user_birthday", k_UserGender = "user_gender",
               k_UserLikes = "user_likes", k_UserPosts = "user_posts", k_UserTaggedPlace = "user_tagged_places";
-          private FacebookUser m_LoggedInUser;
+          public FacebookUser m_LoggedInUser { get; set; }
           private SortingFriendsFeatureEngine m_SortingFriendsEngine;
           private FindBestFriendFeatureEngine m_FindBestFriendEngine;
-          private List<FacebookUser> m_Friends;
+          public List<FacebookUser> m_Friends { get; set; }
 
           private EngineManager()
           {
@@ -174,24 +174,43 @@ namespace FacebookFeatures_Engine
                return m_FindBestFriendEngine.GetBestFriendTopCheckIn();
           }
 
+          public FacebookUser ConnectToFacebook()
+          {
+               if (m_LoggedInUser == null)
+               {
+                    LoginResult result = FacebookService.Login(k_AppId, k_PublicProfile, k_UsersFriend, k_UserBirthday, k_UserGender, k_UserLikes, k_UserPosts, k_UserTaggedPlace);
+                    if (!string.IsNullOrEmpty(result.AccessToken))
+                    {
+                         m_LoggedInUser = new FacebookUser(result.LoggedInUser);
+                    }
+               }
+               return m_LoggedInUser;
+          }
+
           public void LoginUser()
           {
                try
                {
                     FacebookService.s_CollectionLimit = k_CollectionsLimit;
-                    LoginResult result = FacebookService.Login(k_AppId, k_PublicProfile, k_UsersFriend, k_UserBirthday, k_UserGender, k_UserLikes, k_UserPosts, k_UserTaggedPlace);
-                    if (!string.IsNullOrEmpty(result.AccessToken))
+                    ConnectToFacebook();
+                    if (m_LoggedInUser != null)
                     {
-                         m_LoggedInUser = new FacebookUser(result.LoggedInUser);
                          new Thread(fetchFriends).Start();
                     }
-                    m_FindBestFriendEngine.m_LoggedInUserId = m_LoggedInUser.Id;
-                    m_FindBestFriendEngine.m_CreateEventNotifier += m_LoggedInUser.CreateEvent;
+
+
+                    InitialFindBestFriendData();
                }
                catch (FacebookOAuthException e)
                {
                     throw new Exception();
                }
+          }
+
+          public void InitialFindBestFriendData()
+          {
+               m_FindBestFriendEngine.m_LoggedInUserId = m_LoggedInUser.Id;
+               m_FindBestFriendEngine.m_CreateEventNotifier += m_LoggedInUser.CreateEvent;
           }
 
           public void LogoutUser()
@@ -201,7 +220,7 @@ namespace FacebookFeatures_Engine
                     if (m_LoggedInUser != null)
                     {
                          FacebookService.Logout(null);
-                         m_Friends.Clear();
+                         m_Friends = null;
                          m_LoggedInUser = null;
                          m_FindBestFriendEngine.m_BestFriend = null;
                     }
@@ -213,7 +232,10 @@ namespace FacebookFeatures_Engine
                return m_LoggedInUser.Name;
           }
 
-
+          public void SetBestFriend(FacebookUser i_BestFriend)
+          {
+               m_FindBestFriendEngine.m_BestFriend = i_BestFriend;
+          }
 
           public bool UserConnected()
           {
@@ -227,11 +249,13 @@ namespace FacebookFeatures_Engine
                {
                     m_Friends.Add(new FacebookUser(friend));
                }
+               SetFeaturesFriends();
+          }
 
+          public void SetFeaturesFriends()
+          {
                m_SortingFriendsEngine.m_Friends = m_Friends;
                m_FindBestFriendEngine.m_Friends = m_Friends;
           }
-
-
      }
 }
