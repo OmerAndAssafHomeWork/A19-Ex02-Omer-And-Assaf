@@ -29,14 +29,6 @@
           private void InitializeComponent()
           {
                this.components = new System.ComponentModel.Container();
-               System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindBestFriendControl));
-               System.Windows.Forms.Label amountOfAlbumsLabel;
-               System.Windows.Forms.Label birthdayLabel;
-               System.Windows.Forms.Label genderLabel;
-               System.Windows.Forms.Label mostCommonCheckinLabel;
-               System.Windows.Forms.Label mostTaggedUserLabel;
-               System.Windows.Forms.Label nameLabel;
-               System.Windows.Forms.Label pictureLargeURLLabel;
                this.labelAlbums = new System.Windows.Forms.Label();
                this.labelGender = new System.Windows.Forms.Label();
                this.labelMostCommonCheckin = new System.Windows.Forms.Label();
@@ -51,37 +43,15 @@
                this.labelLocation = new System.Windows.Forms.Label();
                this.labelDescription = new System.Windows.Forms.Label();
                this.facebookUserBindingSource = new System.Windows.Forms.BindingSource(this.components);
-               this.facebookUserBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-               this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-               this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-               this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-               this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-               this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-               this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-               this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-               this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-               this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-               this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-               this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-               this.facebookUserBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-               this.labelAlbumsText = new System.Windows.Forms.Label();
-               this.labelBirthdayDateText = new System.Windows.Forms.Label();
+               this.labelAmountOfAlbumsText = new System.Windows.Forms.Label();
+               this.labelBirthdayText = new System.Windows.Forms.Label();
                this.labelGenderText = new System.Windows.Forms.Label();
-               this.labelMostTaggedCheckinText = new System.Windows.Forms.Label();
+               this.labelMostCommonCheckinText = new System.Windows.Forms.Label();
                this.labelMostTaggedUserText = new System.Windows.Forms.Label();
-               this.labelBestFriendNameText = new System.Windows.Forms.Label();
-               this.pictureBoxBestFriendPicture = new System.Windows.Forms.PictureBox();
-               amountOfAlbumsLabel = new System.Windows.Forms.Label();
-               birthdayLabel = new System.Windows.Forms.Label();
-               genderLabel = new System.Windows.Forms.Label();
-               mostCommonCheckinLabel = new System.Windows.Forms.Label();
-               mostTaggedUserLabel = new System.Windows.Forms.Label();
-               nameLabel = new System.Windows.Forms.Label();
-               pictureLargeURLLabel = new System.Windows.Forms.Label();
+               this.labelNameText = new System.Windows.Forms.Label();
+               this.pictureLargeURLPictureBox = new System.Windows.Forms.PictureBox();
                ((System.ComponentModel.ISupportInitialize)(this.facebookUserBindingSource)).BeginInit();
-               ((System.ComponentModel.ISupportInitialize)(this.facebookUserBindingNavigator)).BeginInit();
-               this.facebookUserBindingNavigator.SuspendLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBestFriendPicture)).BeginInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureLargeURLPictureBox)).BeginInit();
                this.SuspendLayout();
                // 
                // labelAlbums
@@ -219,281 +189,93 @@
                // 
                this.facebookUserBindingSource.DataSource = typeof(FacebookFeatures_Engine.FacebookUser);
                // 
-               // facebookUserBindingNavigator
+               // labelAmountOfAlbumsText
                // 
-               this.facebookUserBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-               this.facebookUserBindingNavigator.BindingSource = this.facebookUserBindingSource;
-               this.facebookUserBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-               this.facebookUserBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-               this.facebookUserBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.facebookUserBindingNavigatorSaveItem});
-               this.facebookUserBindingNavigator.Location = new System.Drawing.Point(0, 0);
-               this.facebookUserBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-               this.facebookUserBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-               this.facebookUserBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-               this.facebookUserBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-               this.facebookUserBindingNavigator.Name = "facebookUserBindingNavigator";
-               this.facebookUserBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-               this.facebookUserBindingNavigator.Size = new System.Drawing.Size(1163, 25);
-               this.facebookUserBindingNavigator.TabIndex = 93;
-               this.facebookUserBindingNavigator.Text = "bindingNavigator1";
+               this.labelAmountOfAlbumsText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "AmountOfAlbums", true));
+               this.labelAmountOfAlbumsText.Location = new System.Drawing.Point(175, 207);
+               this.labelAmountOfAlbumsText.Name = "labelAmountOfAlbumsText";
+               this.labelAmountOfAlbumsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelAmountOfAlbumsText.Size = new System.Drawing.Size(100, 23);
+               this.labelAmountOfAlbumsText.TabIndex = 107;
+               this.labelAmountOfAlbumsText.Text = "Albums";
+               this.labelAmountOfAlbumsText.Visible = false;
                // 
-               // bindingNavigatorMoveFirstItem
+               // labelBirthdayText
                // 
-               this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-               this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-               this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-               this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-               this.bindingNavigatorMoveFirstItem.Text = "Move first";
-               // 
-               // bindingNavigatorMovePreviousItem
-               // 
-               this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-               this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-               this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-               this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-               this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-               // 
-               // bindingNavigatorSeparator
-               // 
-               this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-               this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-               // 
-               // bindingNavigatorPositionItem
-               // 
-               this.bindingNavigatorPositionItem.AccessibleName = "Position";
-               this.bindingNavigatorPositionItem.AutoSize = false;
-               this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-               this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-               this.bindingNavigatorPositionItem.Text = "0";
-               this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-               // 
-               // bindingNavigatorCountItem
-               // 
-               this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-               this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-               this.bindingNavigatorCountItem.Text = "of {0}";
-               this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-               // 
-               // bindingNavigatorSeparator1
-               // 
-               this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-               this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-               // 
-               // bindingNavigatorMoveNextItem
-               // 
-               this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-               this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-               this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-               this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-               this.bindingNavigatorMoveNextItem.Text = "Move next";
-               // 
-               // bindingNavigatorMoveLastItem
-               // 
-               this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-               this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-               this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-               this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-               this.bindingNavigatorMoveLastItem.Text = "Move last";
-               // 
-               // bindingNavigatorSeparator2
-               // 
-               this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-               this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-               // 
-               // bindingNavigatorAddNewItem
-               // 
-               this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-               this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-               this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-               this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-               this.bindingNavigatorAddNewItem.Text = "Add new";
-               // 
-               // bindingNavigatorDeleteItem
-               // 
-               this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-               this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-               this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-               this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-               this.bindingNavigatorDeleteItem.Text = "Delete";
-               // 
-               // facebookUserBindingNavigatorSaveItem
-               // 
-               this.facebookUserBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-               this.facebookUserBindingNavigatorSaveItem.Enabled = false;
-               this.facebookUserBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("facebookUserBindingNavigatorSaveItem.Image")));
-               this.facebookUserBindingNavigatorSaveItem.Name = "facebookUserBindingNavigatorSaveItem";
-               this.facebookUserBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-               this.facebookUserBindingNavigatorSaveItem.Text = "Save Data";
-               // 
-               // amountOfAlbumsLabel
-               // 
-               amountOfAlbumsLabel.AutoSize = true;
-               amountOfAlbumsLabel.Location = new System.Drawing.Point(395, 118);
-               amountOfAlbumsLabel.Name = "amountOfAlbumsLabel";
-               amountOfAlbumsLabel.Size = new System.Drawing.Size(97, 13);
-               amountOfAlbumsLabel.TabIndex = 93;
-               amountOfAlbumsLabel.Text = "Amount Of Albums:";
-               // 
-               // labelAlbumsText
-               // 
-               this.labelAlbumsText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "AmountOfAlbums", true));
-               this.labelAlbumsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-               this.labelAlbumsText.Location = new System.Drawing.Point(175, 204);
-               this.labelAlbumsText.Name = "labelAlbumsText";
-               this.labelAlbumsText.Size = new System.Drawing.Size(100, 23);
-               this.labelAlbumsText.TabIndex = 94;
-               this.labelAlbumsText.Text = "Albums";
-               // 
-               // birthdayLabel
-               // 
-               birthdayLabel.AutoSize = true;
-               birthdayLabel.Location = new System.Drawing.Point(395, 141);
-               birthdayLabel.Name = "birthdayLabel";
-               birthdayLabel.Size = new System.Drawing.Size(48, 13);
-               birthdayLabel.TabIndex = 95;
-               birthdayLabel.Text = "Birthday:";
-               // 
-               // labelBirthdayDateText
-               // 
-               this.labelBirthdayDateText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Birthday", true));
-               this.labelBirthdayDateText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-               this.labelBirthdayDateText.Location = new System.Drawing.Point(175, 106);
-               this.labelBirthdayDateText.Name = "labelBirthdayDateText";
-               this.labelBirthdayDateText.Size = new System.Drawing.Size(100, 23);
-               this.labelBirthdayDateText.TabIndex = 96;
-               this.labelBirthdayDateText.Text = "BirthdayDate";
-               // 
-               // genderLabel
-               // 
-               genderLabel.AutoSize = true;
-               genderLabel.Location = new System.Drawing.Point(395, 164);
-               genderLabel.Name = "genderLabel";
-               genderLabel.Size = new System.Drawing.Size(45, 13);
-               genderLabel.TabIndex = 97;
-               genderLabel.Text = "Gender:";
+               this.labelBirthdayText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Birthday", true));
+               this.labelBirthdayText.Location = new System.Drawing.Point(175, 106);
+               this.labelBirthdayText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelBirthdayText.Name = "labelBirthdayText";
+               this.labelBirthdayText.Size = new System.Drawing.Size(100, 23);
+               this.labelBirthdayText.TabIndex = 109;
+               this.labelBirthdayText.Text = "Birthday Date";
+               this.labelBirthdayText.Visible = false;
                // 
                // labelGenderText
                // 
                this.labelGenderText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Gender", true));
-               this.labelGenderText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
                this.labelGenderText.Location = new System.Drawing.Point(175, 130);
-               this.labelGenderText.Name = "labelGenderText";
+               this.labelGenderText.Name = "labelGender";
+               this.labelGenderText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
                this.labelGenderText.Size = new System.Drawing.Size(100, 23);
-               this.labelGenderText.TabIndex = 98;
+               this.labelGenderText.TabIndex = 111;
                this.labelGenderText.Text = "Gender";
+               this.labelGenderText.Visible = false;
                // 
-               // mostCommonCheckinLabel
+               // labelMostCommonCheckinText
                // 
-               mostCommonCheckinLabel.AutoSize = true;
-               mostCommonCheckinLabel.Location = new System.Drawing.Point(395, 187);
-               mostCommonCheckinLabel.Name = "mostCommonCheckinLabel";
-               mostCommonCheckinLabel.Size = new System.Drawing.Size(119, 13);
-               mostCommonCheckinLabel.TabIndex = 99;
-               mostCommonCheckinLabel.Text = "Most Common Checkin:";
-               // 
-               // labelMostTaggedCheckinText
-               // 
-               this.labelMostTaggedCheckinText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "MostCommonCheckin", true));
-               this.labelMostTaggedCheckinText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-               this.labelMostTaggedCheckinText.Location = new System.Drawing.Point(175, 181);
-               this.labelMostTaggedCheckinText.Name = "labelMostTaggedCheckinText";
-               this.labelMostTaggedCheckinText.Size = new System.Drawing.Size(183, 23);
-               this.labelMostTaggedCheckinText.TabIndex = 100;
-               this.labelMostTaggedCheckinText.Text = "MostTaggedCheckin";
-               // 
-               // mostTaggedUserLabel
-               // 
-               mostTaggedUserLabel.AutoSize = true;
-               mostTaggedUserLabel.Location = new System.Drawing.Point(395, 210);
-               mostTaggedUserLabel.Name = "mostTaggedUserLabel";
-               mostTaggedUserLabel.Size = new System.Drawing.Size(98, 13);
-               mostTaggedUserLabel.TabIndex = 101;
-               mostTaggedUserLabel.Text = "Most Tagged User:";
+               this.labelMostCommonCheckinText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "MostCommonCheckin", true));
+               this.labelMostCommonCheckinText.Location = new System.Drawing.Point(175, 181);
+               this.labelMostCommonCheckinText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelMostCommonCheckinText.Name = "labelMostCommonCheckinText";
+               this.labelMostCommonCheckinText.Size = new System.Drawing.Size(100, 23);
+               this.labelMostCommonCheckinText.TabIndex = 113;
+               this.labelMostCommonCheckinText.Text = "MostCommonCheckin";
+               this.labelMostCommonCheckinText.Visible = false;
                // 
                // labelMostTaggedUserText
                // 
                this.labelMostTaggedUserText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "MostTaggedUser", true));
-               this.labelMostTaggedUserText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
                this.labelMostTaggedUserText.Location = new System.Drawing.Point(175, 154);
+               this.labelMostTaggedUserText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
                this.labelMostTaggedUserText.Name = "labelMostTaggedUserText";
-               this.labelMostTaggedUserText.Size = new System.Drawing.Size(164, 23);
-               this.labelMostTaggedUserText.TabIndex = 102;
-               this.labelMostTaggedUserText.Text = "MostTagged";
+               this.labelMostTaggedUserText.Size = new System.Drawing.Size(100, 23);
+               this.labelMostTaggedUserText.TabIndex = 115;
+               this.labelMostTaggedUserText.Text = "MostTaggedUser";
+               this.labelMostTaggedUserText.Visible = false;
                // 
-               // nameLabel
+               // labelNameText
                // 
-               nameLabel.AutoSize = true;
-               nameLabel.Location = new System.Drawing.Point(395, 233);
-               nameLabel.Name = "nameLabel";
-               nameLabel.Size = new System.Drawing.Size(38, 13);
-               nameLabel.TabIndex = 103;
-               nameLabel.Text = "Name:";
+               this.labelNameText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Name", true));
+               this.labelNameText.Location = new System.Drawing.Point(175, 83);
+               this.labelNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelNameText.Name = "labelNameText";
+               this.labelNameText.Size = new System.Drawing.Size(100, 23);
+               this.labelNameText.TabIndex = 117;
+               this.labelNameText.Text = "________________________";
+               this.labelNameText.Visible = false;
                // 
-               // labelBestFriendNameText
+               // pictureLargeURLPictureBox
                // 
-               this.labelBestFriendNameText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Name", true));
-               this.labelBestFriendNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-               this.labelBestFriendNameText.Location = new System.Drawing.Point(175, 83);
-               this.labelBestFriendNameText.Name = "labelBestFriendNameText";
-               this.labelBestFriendNameText.Size = new System.Drawing.Size(116, 23);
-               this.labelBestFriendNameText.TabIndex = 104;
-               this.labelBestFriendNameText.Text = "Best Friend Name";
-               // 
-               // pictureLargeURLLabel
-               // 
-               pictureLargeURLLabel.AutoSize = true;
-               pictureLargeURLLabel.Location = new System.Drawing.Point(395, 259);
-               pictureLargeURLLabel.Name = "pictureLargeURLLabel";
-               pictureLargeURLLabel.Size = new System.Drawing.Size(98, 13);
-               pictureLargeURLLabel.TabIndex = 105;
-               pictureLargeURLLabel.Text = "Picture Large URL:";
-               // 
-               // pictureBoxBestFriendPicture
-               // 
-               this.pictureBoxBestFriendPicture.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.facebookUserBindingSource, "PictureLargeURL", true));
-               this.pictureBoxBestFriendPicture.Location = new System.Drawing.Point(33, 223);
-               this.pictureBoxBestFriendPicture.Name = "pictureBoxBestFriendPicture";
-               this.pictureBoxBestFriendPicture.Size = new System.Drawing.Size(170, 166);
-               this.pictureBoxBestFriendPicture.TabIndex = 106;
-               this.pictureBoxBestFriendPicture.TabStop = false;
+               this.pictureLargeURLPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.facebookUserBindingSource, "PictureLargeURL", true));
+               this.pictureLargeURLPictureBox.Location = new System.Drawing.Point(33, 240);
+               this.pictureLargeURLPictureBox.Name = "pictureLargeURLPictureBox";
+               this.pictureLargeURLPictureBox.Size = new System.Drawing.Size(165, 141);
+               this.pictureLargeURLPictureBox.TabIndex = 119;
+               this.pictureLargeURLPictureBox.TabStop = false;
+               this.pictureLargeURLPictureBox.Visible = false;
                // 
                // FindBestFriendControl
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.Controls.Add(amountOfAlbumsLabel);
-               this.Controls.Add(this.labelAlbumsText);
-               this.Controls.Add(birthdayLabel);
-               this.Controls.Add(this.labelBirthdayDateText);
-               this.Controls.Add(genderLabel);
+               this.Controls.Add(this.labelAmountOfAlbumsText);
+               this.Controls.Add(this.labelBirthdayText);
                this.Controls.Add(this.labelGenderText);
-               this.Controls.Add(mostCommonCheckinLabel);
-               this.Controls.Add(this.labelMostTaggedCheckinText);
-               this.Controls.Add(mostTaggedUserLabel);
+               this.Controls.Add(this.labelMostCommonCheckinText);
                this.Controls.Add(this.labelMostTaggedUserText);
-               this.Controls.Add(nameLabel);
-               this.Controls.Add(this.labelBestFriendNameText);
-               this.Controls.Add(pictureLargeURLLabel);
-               this.Controls.Add(this.pictureBoxBestFriendPicture);
-               this.Controls.Add(this.facebookUserBindingNavigator);
+               this.Controls.Add(this.labelNameText);
+               this.Controls.Add(this.pictureLargeURLPictureBox);
                this.Controls.Add(this.labelAlbums);
                this.Controls.Add(this.labelGender);
                this.Controls.Add(this.labelMostCommonCheckin);
@@ -510,10 +292,7 @@
                this.Name = "FindBestFriendControl";
                this.Size = new System.Drawing.Size(1163, 540);
                ((System.ComponentModel.ISupportInitialize)(this.facebookUserBindingSource)).EndInit();
-               ((System.ComponentModel.ISupportInitialize)(this.facebookUserBindingNavigator)).EndInit();
-               this.facebookUserBindingNavigator.ResumeLayout(false);
-               this.facebookUserBindingNavigator.PerformLayout();
-               ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBestFriendPicture)).EndInit();
+               ((System.ComponentModel.ISupportInitialize)(this.pictureLargeURLPictureBox)).EndInit();
                this.ResumeLayout(false);
                this.PerformLayout();
 
@@ -534,25 +313,12 @@
           private System.Windows.Forms.Label labelLocation;
           private System.Windows.Forms.Label labelDescription;
           private System.Windows.Forms.BindingSource facebookUserBindingSource;
-          private System.Windows.Forms.BindingNavigator facebookUserBindingNavigator;
-          private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-          private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-          private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-          private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-          private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-          private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-          private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-          private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-          private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-          private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-          private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-          private System.Windows.Forms.ToolStripButton facebookUserBindingNavigatorSaveItem;
-          private System.Windows.Forms.Label labelAlbumsText;
-          private System.Windows.Forms.Label labelBirthdayDateText;
+          private System.Windows.Forms.Label labelAmountOfAlbumsText;
+          private System.Windows.Forms.Label labelBirthdayText;
           private System.Windows.Forms.Label labelGenderText;
-          private System.Windows.Forms.Label labelMostTaggedCheckinText;
+          private System.Windows.Forms.Label labelMostCommonCheckinText;
           private System.Windows.Forms.Label labelMostTaggedUserText;
-          private System.Windows.Forms.Label labelBestFriendNameText;
-          private System.Windows.Forms.PictureBox pictureBoxBestFriendPicture;
+          private System.Windows.Forms.Label labelNameText;
+          private System.Windows.Forms.PictureBox pictureLargeURLPictureBox;
      }
 }

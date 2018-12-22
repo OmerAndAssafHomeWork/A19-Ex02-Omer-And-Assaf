@@ -25,15 +25,12 @@ namespace FacebookFeatures_Engine
           string GetPictureFromAlbum(int i_FriendIndex);
           void Sort(int i_Index);
           string GetFriendBirthdayOrAgeAttribute(int i_FriendIndex, int i_SortingBySelectedIndex);
-          int FindBestFriend();
+          FacebookUser FindBestFriend();
           string GetBestFriendFullName();
-          string getBestFriendBirthdayDate();
+          string GetBestFriendBirthdayDate();
           bool IsBestFriendExist();
           void CreateEvent(string i_Description, string i_Location);
-          string getBestFriendTopTag();
           string GetBestFriendGender();
-          int getBestFriendAmountOfAlbums();
-          string getBestFriendTopCheckIn();
           void LoginUser();
           void LogoutUser();
           string GetLoginUserName();

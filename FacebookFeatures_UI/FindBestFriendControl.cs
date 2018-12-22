@@ -26,19 +26,13 @@ namespace FacebookFeatures_UI
                     labelMostTaggedUser,
                     labelMostCommonCheckin,
                     labelAlbums,
-                    labelBestFriendNameText,
-                    labelBirthdayDateText,
+                    labelNameText,
+                    labelBirthdayText,
                     labelGenderText,
                     labelMostTaggedUserText,
-                    labelMostTaggedCheckinText,
-                    labelAlbumsText,
-                    pictureBoxBestFriendPicture);
-               labelBestFriendNameText.Text = string.Empty;
-               labelBirthdayDateText.Text = string.Empty;
-               labelGenderText.Text = string.Empty;
-               labelMostTaggedUserText.Text = string.Empty;
-               labelMostTaggedCheckinText.Text = string.Empty;
-               labelAlbumsText.Text = string.Empty;
+                    labelMostTaggedUser,
+                    labelAmountOfAlbumsText,
+                    pictureLargeURLPictureBox);
           }
 
           private void disableWholeControls()
@@ -67,11 +61,12 @@ namespace FacebookFeatures_UI
 
                if (m_Engine.UserConnected())
                {
-                    int bestFriendIndex = m_Engine.FindBestFriend();
-
-                    if (bestFriendIndex != k_BestFriendNotFoundIndex)
+                    FacebookUser bestFriend = m_Engine.FindBestFriend();
+                    if (bestFriend != null)
                     {                         
-                         Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAlbumsText, labelGenderText, labelBestFriendNameText, pictureBoxBestFriendPicture, labelBirthdayDateText, labelMostTaggedUserText, labelMostTaggedCheckinText);
+                         Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAmountOfAlbumsText, labelGenderText, labelNameText, pictureLargeURLPictureBox, labelBirthdayText, labelMostTaggedUserText, labelMostCommonCheckinText);
+                         facebookUserBindingSource.DataSource = bestFriend;
+                         /*
                          labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_Engine.getBestFriendAmountOfAlbums().ToString()));
                          labelBirthdayDate.Invoke(new Action(() => labelBirthdayDate.Text = m_Engine.getBestFriendBirthdayDate()));
                          labelGenderText.Invoke(new Action(() => labelGenderText.Text = m_Engine.GetBestFriendGender()));
@@ -79,6 +74,7 @@ namespace FacebookFeatures_UI
                          pictureBoxBestFriendPicture.LoadAsync(m_Engine.GetFriendPicture(bestFriendIndex));
                          setMostTaggedUserTextLabel();
                          setMostCheckInTextLabel();
+                         */
                     }
                     else
                     {
@@ -91,11 +87,11 @@ namespace FacebookFeatures_UI
                }
                Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
           }
-
+          /*
           private void setMostCheckInTextLabel()
           {
                const string k_NoDataAvailable = "CheckIn data is not available";
-               string bestFriendMostTopCheckIn = m_Engine.getBestFriendTopCheckIn();
+              // string bestFriendMostTopCheckIn = m_Engine.getBestFriendTopCheckIn();
 
                if (bestFriendMostTopCheckIn != null)
                {
@@ -121,7 +117,7 @@ namespace FacebookFeatures_UI
                     labelMostTaggedUserText.Invoke(new Action(() => labelMostTaggedUserText.Text = k_NoDataAvailable));
                }
           }
-
+          */
           private void buttonCreateBirthdayEvent_Click(object sender, EventArgs e)
           {
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
