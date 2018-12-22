@@ -13,7 +13,7 @@ namespace FacebookFeatures_Engine
      public class EngineManager: IManager
      {
           private readonly object r_LogoutObjectContext = new object();
-          private const int k_CollectionsLimit = 20;
+          private const int k_CollectionsLimit = 5;
           private const string k_AppId = "1027335734116799", k_PublicProfile = "public_profile", k_UsersFriend = "user_friends",
               k_UserBirthday = "user_birthday", k_UserGender = "user_gender",
               k_UserLikes = "user_likes", k_UserPosts = "user_posts", k_UserTaggedPlace = "user_tagged_places";

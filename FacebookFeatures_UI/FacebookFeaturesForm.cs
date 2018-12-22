@@ -8,7 +8,6 @@ namespace FacebookFeatures_UI
 {
      public partial class FacebookFeaturesForm : Form
      {
-          private ManagerProxy m_EngineManager;
           private FeaturesFacade m_FeatureFacade;
 
           public FacebookFeaturesForm()
@@ -17,7 +16,6 @@ namespace FacebookFeatures_UI
                pictureBoxLoginStatus.BackgroundImage = Properties.Resources.red_light_no_background;
                pictureBoxLoginStatus.BackgroundImageLayout = ImageLayout.Stretch;
                m_FeatureFacade = new FeaturesFacade(panelFacebookAppScreen);
-               m_EngineManager = ManagerProxy.GetEngineManager();
           }
 
           private void loginUser()
@@ -26,12 +24,12 @@ namespace FacebookFeatures_UI
 
                try
                {
-                    this.Invoke(new Action(()=> m_EngineManager.LoginUser()));
-                    if (m_EngineManager.UserConnected())
+                    this.Invoke(new Action(()=> m_FeatureFacade.LoginUser()));
+                    if (m_FeatureFacade.UserConnected())
                     {
                          changeButtonMeaning(Properties.Resources.green_circle, logoutButton_Click, loginButton_Click, Properties.Resources.logout);
                          addDefualtControls();
-                         labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Hi {m_EngineManager.GetLoginUserName()}"));
+                         labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Hi {m_FeatureFacade.GetLoginUserName()}"));
                          labelSecondUserMessage.Invoke(new Action(() =>labelSecondUserMessage.Text = $"We invite you to select a feature"));
                          pictureBoxMainScreen.BackgroundImage = Properties.Resources.Welcome;
                     }
@@ -78,8 +76,8 @@ namespace FacebookFeatures_UI
           {
                try
                {
-                    labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Bye {m_EngineManager.GetLoginUserName()}"));
-                    this.Invoke(new Action(() => m_EngineManager.LogoutUser()));
+                    labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Bye {m_FeatureFacade.GetLoginUserName()}"));
+                    this.Invoke(new Action(() => m_FeatureFacade.LogoutUser()));
                     changeButtonMeaning(Properties.Resources.red_light_no_background, loginButton_Click, logoutButton_Click, Properties.Resources.login);
                     panelFacebookAppScreen.Invoke(new Action(() => panelFacebookAppScreen.Controls.Clear()));
                     addDefualtControls();

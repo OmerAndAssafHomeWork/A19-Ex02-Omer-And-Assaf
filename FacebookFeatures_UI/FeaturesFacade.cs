@@ -13,13 +13,38 @@ namespace FacebookFeatures_UI
           private SortingFriendsControl m_SortingFriends;
           private FindBestFriendControl m_FindBestFriend;
           private Control m_ContainerScreen;
-          private Common m_Common;
           private ManagerProxy m_EngineManager;
 
           public FeaturesFacade(Control i_ContainerScreen)
           {
                m_ContainerScreen = i_ContainerScreen;
                m_EngineManager = ManagerProxy.GetEngineManager();
+               initialControls();
+          }
+
+          public void LogoutUser()
+          {
+               m_EngineManager.LogoutUser();
+          }
+
+          public void LoginUser()
+          {
+               m_EngineManager.LoginUser();
+               initialControls();
+          }
+
+          public bool UserConnected()
+          {
+               return m_EngineManager.UserConnected();
+          }
+
+          public string GetLoginUserName()
+          {
+               return m_EngineManager.GetLoginUserName();
+          }
+
+          private void initialControls()
+          {
                m_SortingFriends = new SortingFriendsControl();
                m_FindBestFriend = new FindBestFriendControl();
           }

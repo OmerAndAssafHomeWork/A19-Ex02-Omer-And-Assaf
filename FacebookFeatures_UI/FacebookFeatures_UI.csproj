@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FbGraphApiWrapper, Version=6.8.0.17, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Downloads\01_FB01_BasicFacebookFeatures.V6.8.0.17\FBApi\FbGraphApiWrapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -106,19 +110,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\red light.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\green light.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\facebook logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Welcome.png" />
-    <None Include="Resources\Welcome.jpg" />
-    <None Include="Resources\facebook-sign-in-button.png" />
-    <None Include="Resources\bye.jpg" />
     <None Include="Resources\bye.png" />
     <Content Include="Resources\green circle.png" />
     <None Include="Resources\login.png" />
@@ -126,11 +121,8 @@
     <None Include="Resources\next arrow.png" />
     <None Include="Resources\prev arrow.png" />
     <Content Include="Resources\red light no background.png" />
-    <None Include="Resources\red_noBackground.bmp" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

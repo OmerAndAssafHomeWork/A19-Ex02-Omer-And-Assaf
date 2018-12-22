@@ -9,7 +9,6 @@ namespace FacebookFeatures_UI
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
           private ManagerProxy m_Engine;
-          private Common m_Common;
           
           public FindBestFriendControl()
           {
