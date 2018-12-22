@@ -70,9 +70,10 @@ namespace FacebookFeatures_UI
                     int bestFriendIndex = m_Engine.FindBestFriend();
 
                     if (bestFriendIndex != k_BestFriendNotFoundIndex)
-                    {
+                    {                         
                          Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAlbumsText, labelGenderText, labelBestFriendNameText, pictureBoxBestFriendPicture, labelBirthdayDateText, labelMostTaggedUserText, labelMostTaggedCheckinText);
-                         labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_Engine.GetBestFriendAmountOfAlbums().ToString()));
+                         labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_Engine.getBestFriendAmountOfAlbums().ToString()));
+                         labelBirthdayDate.Invoke(new Action(() => labelBirthdayDate.Text = m_Engine.getBestFriendBirthdayDate()));
                          labelGenderText.Invoke(new Action(() => labelGenderText.Text = m_Engine.GetBestFriendGender()));
                          labelBestFriendNameText.Invoke(new Action(() => labelBestFriendNameText.Text = m_Engine.GetBestFriendFullName()));
                          pictureBoxBestFriendPicture.LoadAsync(m_Engine.GetFriendPicture(bestFriendIndex));
@@ -94,7 +95,7 @@ namespace FacebookFeatures_UI
           private void setMostCheckInTextLabel()
           {
                const string k_NoDataAvailable = "CheckIn data is not available";
-               string bestFriendMostTopCheckIn = m_Engine.GetBestFriendTopCheckIn();
+               string bestFriendMostTopCheckIn = m_Engine.getBestFriendTopCheckIn();
 
                if (bestFriendMostTopCheckIn != null)
                {
@@ -109,7 +110,7 @@ namespace FacebookFeatures_UI
           private void setMostTaggedUserTextLabel()
           {
                const string k_NoDataAvailable = "No tags available";
-               string bestFriendMostTaggedUser = m_Engine.GetBestFriendTopTag();
+               string bestFriendMostTaggedUser = m_Engine.getBestFriendTopTag();
 
                if (bestFriendMostTaggedUser != null)
                {

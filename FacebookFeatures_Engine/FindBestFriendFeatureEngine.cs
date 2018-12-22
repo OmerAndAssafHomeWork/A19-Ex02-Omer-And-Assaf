@@ -95,7 +95,6 @@ namespace FacebookFeatures_Engine
 
                return bestFriendIndex;
           }
-
           private void updateBestFriendDictionaryByTargetUsersPost(Post i_CurrentPost, Dictionary<FacebookUser, int> i_FriendsHierarchy, FacebookUser i_Friend)
           {
                try

@@ -27,13 +27,13 @@ namespace FacebookFeatures_Engine
           string GetFriendBirthdayOrAgeAttribute(int i_FriendIndex, int i_SortingBySelectedIndex);
           int FindBestFriend();
           string GetBestFriendFullName();
-          string GetBestFriendBirthdayDate();
+          string getBestFriendBirthdayDate();
           bool IsBestFriendExist();
           void CreateEvent(string i_Description, string i_Location);
-          string GetBestFriendTopTag();
+          string getBestFriendTopTag();
           string GetBestFriendGender();
-          int GetBestFriendAmountOfAlbums();
-          string GetBestFriendTopCheckIn();
+          int getBestFriendAmountOfAlbums();
+          string getBestFriendTopCheckIn();
           void LoginUser();
           void LogoutUser();
           string GetLoginUserName();

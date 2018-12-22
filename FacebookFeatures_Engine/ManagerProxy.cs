@@ -134,9 +134,9 @@ namespace FacebookFeatures_Engine
                return m_Manager.GetBestFriendFullName();
           }
 
-          public string GetBestFriendBirthdayDate()
+          public string getBestFriendBirthdayDate()
           {
-               return m_Manager.GetBestFriendBirthdayDate();
+               return m_Manager.getBestFriendBirthdayDate();
           }
 
           public bool IsBestFriendExist()
@@ -149,9 +149,9 @@ namespace FacebookFeatures_Engine
                m_Manager.CreateEvent(i_Description, i_Location);
           }
 
-          public string GetBestFriendTopTag()
+          public string getBestFriendTopTag()
           {
-               return m_Manager.GetBestFriendTopTag();
+               return m_Manager.getBestFriendTopTag();
           }
 
           public string GetBestFriendGender()
@@ -159,14 +159,14 @@ namespace FacebookFeatures_Engine
                return m_Manager.GetBestFriendGender();
           }
 
-          public int GetBestFriendAmountOfAlbums()
+          public int getBestFriendAmountOfAlbums()
           {
-               return m_Manager.GetBestFriendAmountOfAlbums();
+               return m_Manager.getBestFriendAmountOfAlbums();
           }
 
-          public string GetBestFriendTopCheckIn()
+          public string getBestFriendTopCheckIn()
           {
-               return m_Manager.GetBestFriendTopCheckIn();
+               return m_Manager.getBestFriendTopCheckIn();
           }
 
           public void LoginUser()

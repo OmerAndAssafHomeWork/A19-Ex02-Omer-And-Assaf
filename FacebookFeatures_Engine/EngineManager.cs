@@ -13,7 +13,7 @@ namespace FacebookFeatures_Engine
      public class EngineManager: IManager
      {
           private readonly object r_LogoutObjectContext = new object();
-          private const int k_CollectionsLimit = 5;
+          private const int k_CollectionsLimit = 5, k_BestFriendNotFound = -1;
           private const string k_AppId = "1027335734116799", k_PublicProfile = "public_profile", k_UsersFriend = "user_friends",
               k_UserBirthday = "user_birthday", k_UserGender = "user_gender",
               k_UserLikes = "user_likes", k_UserPosts = "user_posts", k_UserTaggedPlace = "user_tagged_places";
@@ -131,15 +131,31 @@ namespace FacebookFeatures_Engine
 
           public int FindBestFriend()
           {
-               return m_FindBestFriendEngine.FindBestFriend();
+               int bestFriendIndex = m_FindBestFriendEngine.FindBestFriend();
+               if (bestFriendIndex != k_BestFriendNotFound)
+
+               {
+                    setMyBestFriend(bestFriendIndex);
+               }
+               return bestFriendIndex;
+
           }
+
+          private void setMyBestFriend(int i_BestFriendIndex)
+          {
+               m_FindBestFriendEngine.m_BestFriend = m_Friends[i_BestFriendIndex];
+               m_FindBestFriendEngine.m_BestFriend.AmountOfAlbums = getBestFriendAmountOfAlbums().ToString();
+               m_FindBestFriendEngine.m_BestFriend.MostTaggedUser = getBestFriendTopTag();
+               m_FindBestFriendEngine.m_BestFriend.MostCommonCheckin = getBestFriendTopCheckIn();
+          }
+
 
           public string GetBestFriendFullName()
           {
                return m_FindBestFriendEngine.GetBestFriendFullName();
           }
 
-          public string GetBestFriendBirthdayDate()
+          public string getBestFriendBirthdayDate()
           {
                return m_FindBestFriendEngine.GetBestFriendBirthdayDate();
           }
@@ -154,7 +170,7 @@ namespace FacebookFeatures_Engine
                m_FindBestFriendEngine.CreateEvent(i_Description, i_Location);
           }
 
-          public string GetBestFriendTopTag()
+          public string getBestFriendTopTag()
           {
                return m_FindBestFriendEngine.GetBestFriendTopTag();
           }
@@ -164,12 +180,12 @@ namespace FacebookFeatures_Engine
                return m_FindBestFriendEngine.GetBestFriendGender();
           }
 
-          public int GetBestFriendAmountOfAlbums()
+          public int getBestFriendAmountOfAlbums()
           {
                return m_FindBestFriendEngine.GetBestFriendAmountOfAlbums();
           }
 
-          public string GetBestFriendTopCheckIn()
+          public string getBestFriendTopCheckIn()
           {
                return m_FindBestFriendEngine.GetBestFriendTopCheckIn();
           }
