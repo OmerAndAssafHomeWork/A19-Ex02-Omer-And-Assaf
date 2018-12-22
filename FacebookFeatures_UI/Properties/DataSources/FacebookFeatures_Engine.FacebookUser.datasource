@@ -19,6 +19,9 @@
       <GenericObjectDataSource DisplayName="Checkins" Version="1.0">
          <TypeInfo>FacebookWrapper.ObjectModel.Checkin, FbGraphApiWrapper, Version=6.8.0.17, Culture=neutral, PublicKeyToken=null</TypeInfo>
       </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="Posts" Version="1.0">
+         <TypeInfo>FacebookWrapper.ObjectModel.Post, FbGraphApiWrapper, Version=6.8.0.17, Culture=neutral, PublicKeyToken=null</TypeInfo>
+      </GenericObjectDataSource>
    </Children>
    <TypeInfo>FacebookFeatures_Engine.FacebookUser, FacebookFeatures_Engine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
    <TypeUISetting>

@@ -144,8 +144,8 @@ namespace FacebookFeatures_Engine
           {
                m_FindBestFriendEngine.m_BestFriend = m_Friends[i_BestFriendIndex];
                m_FindBestFriendEngine.m_BestFriend.AmountOfAlbums = getBestFriendAmountOfAlbums().ToString();
-               m_FindBestFriendEngine.m_BestFriend.MostTaggedUser = getBestFriendTopTag();
-               m_FindBestFriendEngine.m_BestFriend.MostCommonCheckin = getBestFriendTopCheckIn();
+               m_FindBestFriendEngine.m_BestFriend.MostTaggedUser = getBestFriendTopTag() ?? "No Tags Available";
+               m_FindBestFriendEngine.m_BestFriend.MostCommonCheckin = getBestFriendTopCheckIn() ?? "No Checkins Available";
           }
 
 

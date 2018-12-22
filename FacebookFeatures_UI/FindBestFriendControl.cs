@@ -63,9 +63,9 @@ namespace FacebookFeatures_UI
                {
                     FacebookUser bestFriend = m_Engine.FindBestFriend();
                     if (bestFriend != null)
-                    {                         
-                         Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAmountOfAlbumsText, labelGenderText, labelNameText, pictureLargeURLPictureBox, labelBirthdayText, labelMostTaggedUserText, labelMostCommonCheckinText);
+                    {
                          facebookUserBindingSource.DataSource = bestFriend;
+                         Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAmountOfAlbumsText, labelGenderText, labelNameText, pictureLargeURLPictureBox, labelBirthdayText, labelMostTaggedUserText, labelMostCommonCheckinText);
                          /*
                          labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_Engine.getBestFriendAmountOfAlbums().ToString()));
                          labelBirthdayDate.Invoke(new Action(() => labelBirthdayDate.Text = m_Engine.getBestFriendBirthdayDate()));

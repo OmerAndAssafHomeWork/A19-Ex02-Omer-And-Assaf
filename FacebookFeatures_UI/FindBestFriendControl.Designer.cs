@@ -192,9 +192,9 @@
                // labelAmountOfAlbumsText
                // 
                this.labelAmountOfAlbumsText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "AmountOfAlbums", true));
+               this.labelAmountOfAlbumsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
                this.labelAmountOfAlbumsText.Location = new System.Drawing.Point(175, 207);
                this.labelAmountOfAlbumsText.Name = "labelAmountOfAlbumsText";
-               this.labelAmountOfAlbumsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
                this.labelAmountOfAlbumsText.Size = new System.Drawing.Size(100, 23);
                this.labelAmountOfAlbumsText.TabIndex = 107;
                this.labelAmountOfAlbumsText.Text = "Albums";
@@ -203,8 +203,8 @@
                // labelBirthdayText
                // 
                this.labelBirthdayText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Birthday", true));
-               this.labelBirthdayText.Location = new System.Drawing.Point(175, 106);
                this.labelBirthdayText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelBirthdayText.Location = new System.Drawing.Point(175, 106);
                this.labelBirthdayText.Name = "labelBirthdayText";
                this.labelBirthdayText.Size = new System.Drawing.Size(100, 23);
                this.labelBirthdayText.TabIndex = 109;
@@ -214,9 +214,9 @@
                // labelGenderText
                // 
                this.labelGenderText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Gender", true));
-               this.labelGenderText.Location = new System.Drawing.Point(175, 130);
-               this.labelGenderText.Name = "labelGender";
                this.labelGenderText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelGenderText.Location = new System.Drawing.Point(175, 130);
+               this.labelGenderText.Name = "labelGenderText";
                this.labelGenderText.Size = new System.Drawing.Size(100, 23);
                this.labelGenderText.TabIndex = 111;
                this.labelGenderText.Text = "Gender";
@@ -225,10 +225,10 @@
                // labelMostCommonCheckinText
                // 
                this.labelMostCommonCheckinText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "MostCommonCheckin", true));
-               this.labelMostCommonCheckinText.Location = new System.Drawing.Point(175, 181);
                this.labelMostCommonCheckinText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelMostCommonCheckinText.Location = new System.Drawing.Point(175, 181);
                this.labelMostCommonCheckinText.Name = "labelMostCommonCheckinText";
-               this.labelMostCommonCheckinText.Size = new System.Drawing.Size(100, 23);
+               this.labelMostCommonCheckinText.Size = new System.Drawing.Size(210, 23);
                this.labelMostCommonCheckinText.TabIndex = 113;
                this.labelMostCommonCheckinText.Text = "MostCommonCheckin";
                this.labelMostCommonCheckinText.Visible = false;
@@ -236,10 +236,10 @@
                // labelMostTaggedUserText
                // 
                this.labelMostTaggedUserText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "MostTaggedUser", true));
-               this.labelMostTaggedUserText.Location = new System.Drawing.Point(175, 154);
                this.labelMostTaggedUserText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelMostTaggedUserText.Location = new System.Drawing.Point(175, 154);
                this.labelMostTaggedUserText.Name = "labelMostTaggedUserText";
-               this.labelMostTaggedUserText.Size = new System.Drawing.Size(100, 23);
+               this.labelMostTaggedUserText.Size = new System.Drawing.Size(210, 23);
                this.labelMostTaggedUserText.TabIndex = 115;
                this.labelMostTaggedUserText.Text = "MostTaggedUser";
                this.labelMostTaggedUserText.Visible = false;
@@ -247,20 +247,20 @@
                // labelNameText
                // 
                this.labelNameText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookUserBindingSource, "Name", true));
-               this.labelNameText.Location = new System.Drawing.Point(175, 83);
                this.labelNameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+               this.labelNameText.Location = new System.Drawing.Point(175, 83);
                this.labelNameText.Name = "labelNameText";
                this.labelNameText.Size = new System.Drawing.Size(100, 23);
                this.labelNameText.TabIndex = 117;
-               this.labelNameText.Text = "________________________";
+               this.labelNameText.Text = "Name";
                this.labelNameText.Visible = false;
                // 
                // pictureLargeURLPictureBox
                // 
-               this.pictureLargeURLPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.facebookUserBindingSource, "PictureLargeURL", true));
+               this.pictureLargeURLPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("ImageLocation", this.facebookUserBindingSource, "PictureLargeURL", true));
                this.pictureLargeURLPictureBox.Location = new System.Drawing.Point(33, 240);
                this.pictureLargeURLPictureBox.Name = "pictureLargeURLPictureBox";
-               this.pictureLargeURLPictureBox.Size = new System.Drawing.Size(165, 141);
+               this.pictureLargeURLPictureBox.Size = new System.Drawing.Size(200, 170);
                this.pictureLargeURLPictureBox.TabIndex = 119;
                this.pictureLargeURLPictureBox.TabStop = false;
                this.pictureLargeURLPictureBox.Visible = false;
