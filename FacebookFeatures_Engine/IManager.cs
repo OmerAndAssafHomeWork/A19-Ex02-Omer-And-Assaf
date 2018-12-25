@@ -15,6 +15,7 @@ namespace FacebookFeatures_Engine
           bool SetNextPostIndex(int i_FriendIndex);
           bool SetNextTagIndex(int i_FriendIndex);
           bool SetNextAlbumIndex(int i_FriendIndex);
+          bool SetNextPictureAlbumIndex(int i_FriendIndex);
           string GetPost(int i_FriendIndex, ref string io_PictureURL);
           string GetCheckin(int i_FriendIndex);
           string GetTag(int i_FriendIndex);

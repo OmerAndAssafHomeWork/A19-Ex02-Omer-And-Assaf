@@ -11,9 +11,10 @@ namespace FacebookFeatures_UI
      public partial class SortingFriendsControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private ManagerProxy m_Engine = null;
+          private IManager m_Engine = null;
           private int m_currentFriendIndex = k_InitialValue;
           private event getAttributeInfo GetAttributeInfoNotifier;
+          private string m_CurrentCalculationSortingFriendsFeature = null;
 
           public SortingFriendsControl()
           {
@@ -194,19 +195,18 @@ namespace FacebookFeatures_UI
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
                {
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
-                    Common.s_CurrentCalculationSortingFriendsFeature = i_CurrentCalaculationMessage;
+                    m_CurrentCalculationSortingFriendsFeature = i_CurrentCalaculationMessage;
                     GetAttributeInfoNotifier.Invoke();
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
                }
                else
                {
-                    this.Invoke(new Action(() => MessageBox.Show($"{Common.s_CurrentCalculationSortingFriendsFeature} calculation is still working")));
+                    this.Invoke(new Action(() => MessageBox.Show($"{m_CurrentCalculationSortingFriendsFeature} calculation is still working")));
                }
           }
 
           private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
           {
-
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
                {
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
@@ -354,12 +354,12 @@ namespace FacebookFeatures_UI
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
                {
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
-                    Common.s_CurrentCalculationSortingFriendsFeature = "Selected Friend";
+                    m_CurrentCalculationSortingFriendsFeature = "Selected Friend";
                     new Thread(sortFriendsByUserChoice).Start();
                }
                else
                {
-                    this.Invoke(new Action(() => MessageBox.Show($"{Common.s_CurrentCalculationSortingFriendsFeature} calculation is still working")));
+                    this.Invoke(new Action(() => MessageBox.Show($"{m_CurrentCalculationSortingFriendsFeature} calculation is still working")));
                }
           }
 

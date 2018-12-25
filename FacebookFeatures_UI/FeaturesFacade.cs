@@ -13,7 +13,7 @@ namespace FacebookFeatures_UI
           private SortingFriendsControl m_SortingFriends;
           private FindBestFriendControl m_FindBestFriend;
           private Control m_ContainerScreen;
-          private ManagerProxy m_EngineManager;
+          private IManager m_EngineManager;
 
           public FeaturesFacade(Control i_ContainerScreen)
           {
@@ -61,7 +61,6 @@ namespace FacebookFeatures_UI
                          }
                     case FeaturesTypeEnum.FindBestFriend:
                          {
-                              Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
                               new Thread(displayFindBestFriendFeature).Start();
                               break;
                          }
@@ -94,7 +93,6 @@ namespace FacebookFeatures_UI
                {
                     m_ContainerScreen.Invoke(new Action(() => MessageBox.Show(Common.NoConnectionToFacebook)));
                }
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
           }
 
 

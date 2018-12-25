@@ -8,7 +8,8 @@ namespace FacebookFeatures_UI
      public partial class FindBestFriendControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private ManagerProxy m_Engine;
+          private IManager m_Engine;
+          private object dummy = new object();
           
           public FindBestFriendControl()
           {
@@ -43,6 +44,8 @@ namespace FacebookFeatures_UI
 
           private void buttonFindBestFriend_Click(object sender, EventArgs e)
           {
+               new Thread(findBestFriend).Start();
+/*
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
                {
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
@@ -53,6 +56,7 @@ namespace FacebookFeatures_UI
                {
                     this.Invoke(new Action(() => MessageBox.Show($"{ Common.s_CurrentCalculationFindBestFriendFeature} calculation is still alive")));
                }
+               */
           }
 
           private void findBestFriend()
@@ -61,6 +65,9 @@ namespace FacebookFeatures_UI
 
                if (m_Engine.UserConnected())
                {
+                    lock(dummy)
+                    { 
+}
                     FacebookUser bestFriend = m_Engine.FindBestFriend();
                     if (bestFriend != null)
                     {
