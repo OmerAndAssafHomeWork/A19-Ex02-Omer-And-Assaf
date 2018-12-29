@@ -8,13 +8,13 @@ namespace FacebookFeatures_UI
      public partial class FindBestFriendControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private IManager m_Engine;
-          private object dummy = new object();
+          private IManager m_EngineManager;
+          private object m_LockedObject = new object();
           
           public FindBestFriendControl()
           {
                InitializeComponent();
-               m_Engine = ManagerProxy.GetEngineManager();
+               m_EngineManager = ManagerProxy.GetEngineManager();
           }
 
           private void disableSecondFeatureControls()
@@ -63,12 +63,12 @@ namespace FacebookFeatures_UI
           {
                const string k_NoExistFriendWithBirthday = "You don't have friends who have birthday in four months";
 
-               if (m_Engine.UserConnected())
+               if (m_EngineManager.UserConnected())
                {
-                    lock(dummy)
+                    lock(m_LockedObject)
                     { 
 }
-                    FacebookUser bestFriend = m_Engine.FindBestFriend();
+                    FacebookUser bestFriend = m_EngineManager.FindBestFriend();
                     if (bestFriend != null)
                     {
                          facebookUserBindingSource.DataSource = bestFriend;
@@ -142,9 +142,9 @@ namespace FacebookFeatures_UI
           private void createEvent()
           {
                const string k_BestFriendDidntFetchMessage = "First you need to find your best friend";
-               if (m_Engine.UserConnected())
+               if (m_EngineManager.UserConnected())
                {
-                    if (m_Engine.IsBestFriendExist())
+                    if (m_EngineManager.IsBestFriendExist())
                     {
                          createBirthdayEvent();
                     }
@@ -169,7 +169,7 @@ namespace FacebookFeatures_UI
                     string location = null;
                     textBoxDescirption.Invoke(new Action(() => description = textBoxDescirption.Text));
                     textBoxLocation.Invoke(new Action(() => location = textBoxLocation.Text));
-                    m_Engine.CreateEvent(description, location);
+                    m_EngineManager.CreateEvent(description, location);
                     textBoxDescirption.Invoke(new Action(() => textBoxDescirption.Text = string.Empty));
                     textBoxLocation.Invoke(new Action(() => textBoxLocation.Text = string.Empty));
                     MessageBox.Show(k_EventCreatedMessage);

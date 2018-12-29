@@ -8,7 +8,7 @@ namespace FacebookFeatures_Engine
 {
      public class ManagerProxy :IManager
      {
-          private const int k_NotFound = -1;
+          private const int k_NotFound = -1, k_SaveDataMinutes = 20;
           private string m_CurrentLoggedInUserId;
           private EngineManager m_Manager;
           private Dictionary<string, LoggedInUserData> m_LoggedInUsers = new Dictionary<string, LoggedInUserData>();
@@ -160,15 +160,20 @@ namespace FacebookFeatures_Engine
                m_CurrentLoggedInUserId = loggedInUser.Id;
                if (loggedInUser != null && m_LoggedInUsers.ContainsKey(loggedInUser.Id))
                {
-                    initialUserData(m_CurrentLoggedInUserId);
-                    m_Manager.InitialFindBestFriendData();
-                    m_Manager.SetFeaturesFriends();
+                    TimeSpan deltaTime = DateTime.Now - m_LoggedInUsers[loggedInUser.Id].m_SaveTime;
+                    if(deltaTime.TotalMinutes <= k_SaveDataMinutes)
+                    {
+                         initialUserData(m_CurrentLoggedInUserId);
+                         m_Manager.InitialFindBestFriendData();
+                         m_Manager.SetFeaturesFriends();
+                    }
                }
                else
                {
                     m_Manager.LoginUser();
                     m_LoggedInUsers.Add(m_CurrentLoggedInUserId, new LoggedInUserData());
                }
+               m_LoggedInUsers[m_CurrentLoggedInUserId].m_SaveTime = DateTime.Now;
           }
 
           private void initialUserData(string i_Id)

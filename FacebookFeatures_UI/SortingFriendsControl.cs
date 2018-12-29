@@ -11,7 +11,7 @@ namespace FacebookFeatures_UI
      public partial class SortingFriendsControl : UserControl
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
-          private IManager m_Engine = null;
+          private IManager m_EngineManager = null;
           private int m_currentFriendIndex = k_InitialValue;
           private event getAttributeInfo GetAttributeInfoNotifier;
           private string m_CurrentCalculationSortingFriendsFeature = null;
@@ -19,7 +19,7 @@ namespace FacebookFeatures_UI
           public SortingFriendsControl()
           {
                InitializeComponent();
-               m_Engine = ManagerProxy.GetEngineManager();
+               m_EngineManager = ManagerProxy.GetEngineManager();
           }
 
           private void disableFirstFeatureControls()
@@ -44,20 +44,23 @@ namespace FacebookFeatures_UI
 
           public void FetchFriends()
           {
-               List<string> g = new List<string>();
-               List<string> friendsName = m_Engine.GetFriends();
+               List<string> friendsName = m_EngineManager.GetFriends();
+               int selectedIndex = k_InitialValue;
+               listBoxFriends.Invoke(new Action (()=> selectedIndex = listBoxFriends.SelectedIndex));
                listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Clear()));
                foreach (string friendName in friendsName)
                {
                     listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Add(friendName)));
                }
+               listBoxFriends.Invoke(new Action(() => listBoxFriends.SelectedIndex = selectedIndex));
+
           }
 
           private string getPosts()
           {
                string picture = null;
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string post = m_Engine.GetPost(m_currentFriendIndex, ref picture);
+               string post = m_EngineManager.GetPost(m_currentFriendIndex, ref picture);
                if (post != null)
                {
                     labelAttributePlaceHolder.Invoke(new Action(() => labelAttributePlaceHolder.Text = post));
@@ -78,7 +81,7 @@ namespace FacebookFeatures_UI
           private string getTags()
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string tag = m_Engine.GetTag(m_currentFriendIndex);
+               string tag = m_EngineManager.GetTag(m_currentFriendIndex);
 
                if (tag != null)
                {
@@ -94,7 +97,7 @@ namespace FacebookFeatures_UI
           private string getCheckin()
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string checkin = m_Engine.GetCheckin(m_currentFriendIndex);
+               string checkin = m_EngineManager.GetCheckin(m_currentFriendIndex);
 
                if (checkin != null)
                {
@@ -110,13 +113,13 @@ namespace FacebookFeatures_UI
           private string getAlbumDetails()
           {
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string photoFromAlbum = m_Engine.GetPictureFromAlbum(m_currentFriendIndex);
+               string photoFromAlbum = m_EngineManager.GetPictureFromAlbum(m_currentFriendIndex);
                
                if (photoFromAlbum != null)
                {
                     pictureBoxAlbumPhoto.LoadAsync(photoFromAlbum);
-                    labelAttributePlaceHolder.Invoke(new Action (() => labelAttributePlaceHolder.Text = m_Engine.GetAlbumName(m_currentFriendIndex)));
-                    labelPhotoTitle.Invoke(new Action (() => labelPhotoTitle.Text = m_Engine.GetPictureTitle(m_currentFriendIndex)));
+                    labelAttributePlaceHolder.Invoke(new Action (() => labelAttributePlaceHolder.Text = m_EngineManager.GetAlbumName(m_currentFriendIndex)));
+                    labelPhotoTitle.Invoke(new Action (() => labelPhotoTitle.Text = m_EngineManager.GetPictureTitle(m_currentFriendIndex)));
                     Common.setVisibilityControls(
                          true,
                          pictureBoxAlbumPhoto,
@@ -146,7 +149,7 @@ namespace FacebookFeatures_UI
 
           private void suitFunctionalityBySelectedIndex()
           {
-               m_Engine.InitialAlbumIndexes();
+               m_EngineManager.InitialAlbumIndexes();
                eSortingBy userChoice = eSortingBy.Default;
                comboBoxSortingOptions.Invoke(new Action(() => userChoice = (eSortingBy)comboBoxSortingOptions.SelectedIndex));
                switch (userChoice)
@@ -228,7 +231,7 @@ namespace FacebookFeatures_UI
                     clearButtonsEvents(buttonNextPicture, buttonPrevPicture, buttonNextPlaceHolder, buttonPrevPlaceHolder);
                     int selectedIndex = k_InitialValue;
                     listBoxFriends.Invoke(new Action(() => selectedIndex = listBoxFriends.SelectedIndex));
-                    string friendImageURL = m_Engine.GetFriendPicture(selectedIndex);
+                    string friendImageURL = m_EngineManager.GetFriendPicture(selectedIndex);
                     if (friendImageURL != null)
                     {
                          Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
@@ -254,7 +257,7 @@ namespace FacebookFeatures_UI
                int userOptionIndex = k_InitialValue;
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
                comboBoxSortingOptions.Invoke(new Action(() => userOptionIndex = comboBoxSortingOptions.SelectedIndex));
-               string attribute = m_Engine.GetFriendBirthdayOrAgeAttribute(m_currentFriendIndex, userOptionIndex);
+               string attribute = m_EngineManager.GetFriendBirthdayOrAgeAttribute(m_currentFriendIndex, userOptionIndex);
 
                if (attribute != null)
                {
@@ -271,7 +274,7 @@ namespace FacebookFeatures_UI
           {
                const string k_PrevTag = "Prev Tag", k_NextTag = "Next Tag";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string tagsWerentFoundMessage = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} doesn't have Tags";
+               string tagsWerentFoundMessage = $"{m_EngineManager.GetFriendFirstName(m_currentFriendIndex)} doesn't have Tags";
 
                if (getTags() != null)
                {
@@ -292,7 +295,7 @@ namespace FacebookFeatures_UI
           {
                const string k_PrevCheckin = "Prev Checkin", k_NextCheckin = "Next Checkin";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string checkinsWerentFound = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} doesn't have checkins";
+               string checkinsWerentFound = $"{m_EngineManager.GetFriendFirstName(m_currentFriendIndex)} doesn't have checkins";
                if (getCheckin() != null)
                {
                     buttonPrevPlaceHolder.Invoke(new Action(() => buttonPrevPlaceHolder.Text = k_PrevCheckin));
@@ -312,7 +315,7 @@ namespace FacebookFeatures_UI
           {
                const string k_PrevPost = "Prev Post", k_NextPost = "Next Post";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string postsWerentFound = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} doesn't have posts";
+               string postsWerentFound = $"{m_EngineManager.GetFriendFirstName(m_currentFriendIndex)} doesn't have posts";
                if (getPosts() != null)
                {
                     buttonPrevPlaceHolder.Invoke(new Action(() => buttonPrevPlaceHolder.Text = k_PrevPost));
@@ -332,7 +335,7 @@ namespace FacebookFeatures_UI
           {
                const string prevAlbum = "Prev Album", nextAlbum = "Next Album";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               string albumsWerentFoundMessage = $"{m_Engine.GetFriendFirstName(m_currentFriendIndex)} selected doesn't have albums";
+               string albumsWerentFoundMessage = $"{m_EngineManager.GetFriendFirstName(m_currentFriendIndex)} selected doesn't have albums";
                if (getAlbumDetails() != null)
                {
                     buttonNextPlaceHolder.Invoke(new Action(() => buttonNextPlaceHolder.Text = nextAlbum));
@@ -368,11 +371,13 @@ namespace FacebookFeatures_UI
                try
                {
                     int currentUserSortingChoice = k_InitialValue;
-                    if (m_Engine.UserConnected())
+                    if (m_EngineManager.UserConnected())
                     {
                          listBoxFriends.Invoke(new Action(() => currentUserSortingChoice = comboBoxSortingOptions.SelectedIndex));
-                         m_Engine.Sort(currentUserSortingChoice);
+                         listBoxFriends.Invoke(new Action(() => listBoxFriends.SelectedIndex = k_InitialValue));
+                         m_EngineManager.Sort(currentUserSortingChoice);
                          clearButtonsEvents(buttonNextPlaceHolder, buttonPrevPlaceHolder, buttonNextPicture, buttonPrevPicture);
+
                          FetchFriends();
                          disableFirstFeatureControls();
                     }
@@ -403,7 +408,7 @@ namespace FacebookFeatures_UI
           private void setPrevAlbum()
           {
                const string k_FirstAlbumError = "You are in the first album";
-               if (m_Engine.SetPrevPlaceHolderIndex())
+               if (m_EngineManager.SetPrevPlaceHolderIndex())
                {
                     getAlbumDetails();
                }
@@ -424,7 +429,7 @@ namespace FacebookFeatures_UI
           {
                const string k_LastAlbumError = "You are in the last album";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               if (m_Engine.SetNextAlbumIndex(m_currentFriendIndex))
+               if (m_EngineManager.SetNextAlbumIndex(m_currentFriendIndex))
                {
                     getAlbumDetails();
                }
@@ -444,7 +449,7 @@ namespace FacebookFeatures_UI
           private void setPrevPicture()
           {
                const string k_FirstPictureError = "You are in the first picture album";
-               if (m_Engine.SetPrevPictureAlbumIndex())
+               if (m_EngineManager.SetPrevPictureAlbumIndex())
                {
                     getAlbumDetails();
                }
@@ -466,7 +471,7 @@ namespace FacebookFeatures_UI
           {
                const string k_LastPictureError = "You are in the last picture album";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               if (m_Engine.SetNextPictureAlbumIndex(m_currentFriendIndex))
+               if (m_EngineManager.SetNextPictureAlbumIndex(m_currentFriendIndex))
                {
                     getAlbumDetails();
                }
@@ -487,7 +492,7 @@ namespace FacebookFeatures_UI
           private void setPrevCheckin()
           {
                const string k_FirstCheckinError = "You are in the first checkin";
-               if (m_Engine.SetPrevPlaceHolderIndex())
+               if (m_EngineManager.SetPrevPlaceHolderIndex())
                {
                     getCheckin();
                }
@@ -508,7 +513,7 @@ namespace FacebookFeatures_UI
           {
                const string k_LastCheckinError = "You are in the last checkin";
                listBoxFriends.Invoke(new Action(() => m_currentFriendIndex = listBoxFriends.SelectedIndex));
-               if (m_Engine.SetNextCheckinIndex(m_currentFriendIndex))
+               if (m_EngineManager.SetNextCheckinIndex(m_currentFriendIndex))
                {
                     getCheckin();
                }
@@ -528,7 +533,7 @@ namespace FacebookFeatures_UI
           private void setPrevPost()
           {
                const string k_FirstPostError = "You are in the first post";
-               if (m_Engine.SetPrevPlaceHolderIndex())
+               if (m_EngineManager.SetPrevPlaceHolderIndex())
                {
                     getPosts();
                }
@@ -549,7 +554,7 @@ namespace FacebookFeatures_UI
           private void setNextPost()
           {
                const string k_LastPostError = "You are in the last post";
-               if (m_Engine.SetNextPostIndex(listBoxFriends.SelectedIndex))
+               if (m_EngineManager.SetNextPostIndex(listBoxFriends.SelectedIndex))
                {
                     getPosts();
                }
@@ -570,7 +575,7 @@ namespace FacebookFeatures_UI
           private void setPrevTag()
           {
                const string k_FirstTagError = "You are in the first tag";
-               if (m_Engine.SetPrevPlaceHolderIndex())
+               if (m_EngineManager.SetPrevPlaceHolderIndex())
                {
                     getTags();
                }
@@ -590,7 +595,7 @@ namespace FacebookFeatures_UI
           private void setNextTag()
           {
                const string k_LastTagError = "You are in the last tag";
-               if (m_Engine.SetNextTagIndex(listBoxFriends.SelectedIndex))
+               if (m_EngineManager.SetNextTagIndex(listBoxFriends.SelectedIndex))
                {
                     getTags();
                }

@@ -3,14 +3,12 @@ using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using SingletonCreator;
 
 namespace FacebookFeatures_Engine
 {
-     public class EngineManager: IManager
+     public class EngineManager : IManager
      {
           private readonly object r_LogoutObjectContext = new object();
           private const int k_CollectionsLimit = 5, k_BestFriendNotFound = -1;
@@ -21,6 +19,7 @@ namespace FacebookFeatures_Engine
           private SortingFriendsFeatureEngine m_SortingFriendsEngine;
           private FindBestFriendFeatureEngine m_FindBestFriendEngine;
           public List<FacebookUser> m_Friends { get; set; }
+          private object m_LockedObject = new object();
 
           private EngineManager()
           {
@@ -41,7 +40,10 @@ namespace FacebookFeatures_Engine
 
           public List<string> GetFriends()
           {
-               return m_SortingFriendsEngine.GetFriends();
+               lock (m_LockedObject)
+               {
+                    return m_SortingFriendsEngine.GetFriends();
+               }
           }
 
           public bool SetNextPictureAlbumIndex(int i_FriendIndex)
@@ -207,11 +209,13 @@ namespace FacebookFeatures_Engine
                try
                {
                     FacebookService.s_CollectionLimit = k_CollectionsLimit;
+
                     ConnectToFacebook();
                     if (m_LoggedInUser != null)
                     {
                          new Thread(fetchFriends).Start();
                     }
+
 
 
                     InitialFindBestFriendData();

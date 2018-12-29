@@ -14,7 +14,7 @@ namespace FacebookFeatures_UI
           private FindBestFriendControl m_FindBestFriend;
           private Control m_ContainerScreen;
           private IManager m_EngineManager;
-
+          
           public FeaturesFacade(Control i_ContainerScreen)
           {
                m_ContainerScreen = i_ContainerScreen;
@@ -55,6 +55,7 @@ namespace FacebookFeatures_UI
                {
                     case FeaturesTypeEnum.SortingFriends:
                          {
+
                               Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                               new Thread(displaySortingFriendsFeature).Start();
                               break;

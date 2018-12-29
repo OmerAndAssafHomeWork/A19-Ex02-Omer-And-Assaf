@@ -9,5 +9,6 @@ namespace FacebookFeatures_Engine
      {
           public List<FacebookUser> m_Friends { get; set; }
           public FacebookUser m_BestFriend { set; get; }
+          public DateTime m_SaveTime { set; get; }
      }
 }
