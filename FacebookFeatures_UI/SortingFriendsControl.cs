@@ -46,14 +46,13 @@ namespace FacebookFeatures_UI
           {
                List<string> friendsName = m_EngineManager.GetFriends();
                int selectedIndex = k_InitialValue;
-               listBoxFriends.Invoke(new Action (()=> selectedIndex = listBoxFriends.SelectedIndex));
+               listBoxFriends.Invoke(new Action(() => selectedIndex = listBoxFriends.SelectedIndex));
                listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Clear()));
                foreach (string friendName in friendsName)
                {
                     listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Add(friendName)));
                }
-               listBoxFriends.Invoke(new Action(() => listBoxFriends.SelectedIndex = selectedIndex));
-
+               listBoxFriends.BeginInvoke(new Action(() => listBoxFriends.SelectedIndex = selectedIndex));
           }
 
           private string getPosts()

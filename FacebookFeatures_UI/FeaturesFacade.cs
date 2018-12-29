@@ -14,7 +14,9 @@ namespace FacebookFeatures_UI
           private FindBestFriendControl m_FindBestFriend;
           private Control m_ContainerScreen;
           private IManager m_EngineManager;
-          
+          private object m_LockedObject = new object();
+
+
           public FeaturesFacade(Control i_ContainerScreen)
           {
                m_ContainerScreen = i_ContainerScreen;
@@ -72,9 +74,12 @@ namespace FacebookFeatures_UI
           {
                if (m_EngineManager.UserConnected())
                {
-                    m_ContainerScreen.Invoke(new Action(() => m_ContainerScreen.Controls.Clear()));
-                    m_ContainerScreen.Invoke(new Action(() => m_ContainerScreen.Controls.Add(m_SortingFriends)));
-                    m_SortingFriends.FetchFriends();
+                    lock (m_LockedObject)
+                    {
+                         m_ContainerScreen.Invoke(new Action(() => m_ContainerScreen.Controls.Clear()));
+                         m_ContainerScreen.Invoke(new Action(() => m_ContainerScreen.Controls.Add(m_SortingFriends)));
+                         m_SortingFriends.FetchFriends();
+                    }
                }
                else
                {

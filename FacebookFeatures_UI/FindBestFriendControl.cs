@@ -9,7 +9,6 @@ namespace FacebookFeatures_UI
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
           private IManager m_EngineManager;
-          private object m_LockedObject = new object();
           
           public FindBestFriendControl()
           {
@@ -44,8 +43,6 @@ namespace FacebookFeatures_UI
 
           private void buttonFindBestFriend_Click(object sender, EventArgs e)
           {
-               new Thread(findBestFriend).Start();
-/*
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
                {
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
@@ -56,7 +53,6 @@ namespace FacebookFeatures_UI
                {
                     this.Invoke(new Action(() => MessageBox.Show($"{ Common.s_CurrentCalculationFindBestFriendFeature} calculation is still alive")));
                }
-               */
           }
 
           private void findBestFriend()
@@ -65,24 +61,12 @@ namespace FacebookFeatures_UI
 
                if (m_EngineManager.UserConnected())
                {
-                    lock(m_LockedObject)
-                    { 
-}
                     FacebookUser bestFriend = m_EngineManager.FindBestFriend();
                     if (bestFriend != null)
                     {
                          facebookUserBindingSource.DataSource = bestFriend;
                          Common.setVisibilityControls(true, labelMostCommonCheckin, labelMostTaggedUser, labelFullName, labelBirthdayDate, labelGender, labelAlbums, labelAmountOfAlbumsText, labelGenderText, labelNameText, pictureLargeURLPictureBox, labelBirthdayText, labelMostTaggedUserText, labelMostCommonCheckinText);
-                         /*
-                         labelAlbumsText.Invoke(new Action(() => labelAlbumsText.Text = m_Engine.getBestFriendAmountOfAlbums().ToString()));
-                         labelBirthdayDate.Invoke(new Action(() => labelBirthdayDate.Text = m_Engine.getBestFriendBirthdayDate()));
-                         labelGenderText.Invoke(new Action(() => labelGenderText.Text = m_Engine.GetBestFriendGender()));
-                         labelBestFriendNameText.Invoke(new Action(() => labelBestFriendNameText.Text = m_Engine.GetBestFriendFullName()));
-                         pictureBoxBestFriendPicture.LoadAsync(m_Engine.GetFriendPicture(bestFriendIndex));
-                         setMostTaggedUserTextLabel();
-                         setMostCheckInTextLabel();
-                         */
-                    }
+                                             }
                     else
                     {
                          this.Invoke(new Action(() => MessageBox.Show(k_NoExistFriendWithBirthday)));
@@ -94,43 +78,13 @@ namespace FacebookFeatures_UI
                }
                Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
           }
-          /*
-          private void setMostCheckInTextLabel()
-          {
-               const string k_NoDataAvailable = "CheckIn data is not available";
-              // string bestFriendMostTopCheckIn = m_Engine.getBestFriendTopCheckIn();
-
-               if (bestFriendMostTopCheckIn != null)
-               {
-                    labelMostTaggedCheckinText.Invoke(new Action(() => labelMostTaggedCheckinText.Text = bestFriendMostTopCheckIn));
-               }
-               else
-               {
-                    labelMostTaggedCheckinText.Invoke(new Action(() => labelMostTaggedCheckinText.Text = k_NoDataAvailable));
-               }
-          }
-
-          private void setMostTaggedUserTextLabel()
-          {
-               const string k_NoDataAvailable = "No tags available";
-               string bestFriendMostTaggedUser = m_Engine.getBestFriendTopTag();
-
-               if (bestFriendMostTaggedUser != null)
-               {
-                    labelMostTaggedUserText.Invoke(new Action(() => labelMostTaggedUserText.Text = bestFriendMostTaggedUser));
-               }
-               else
-               {
-                    labelMostTaggedUserText.Invoke(new Action(() => labelMostTaggedUserText.Text = k_NoDataAvailable));
-               }
-          }
-          */
+          
           private void buttonCreateBirthdayEvent_Click(object sender, EventArgs e)
           {
                if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
                {
                     Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
-                    Common.s_CurrentCalculationSortingFriendsFeature = "Create Event";
+                    Common.s_CurrentCalculationFindBestFriendFeature = "Create Event";
                     new Thread(createEvent).Start(); ;
                }
                else
@@ -189,7 +143,7 @@ namespace FacebookFeatures_UI
                     legalInput = false;
                     MessageBox.Show(k_EmptyDescriptionError);
                }
-               else if (string.IsNullOrEmpty(description))
+               else if (string.IsNullOrEmpty(location))
                {
                     legalInput = false;
                     MessageBox.Show(k_EmptyLocationError);

@@ -24,13 +24,13 @@ namespace FacebookFeatures_UI
 
                try
                {
-                    this.Invoke(new Action(()=> m_FeatureFacade.LoginUser()));
+                    m_FeatureFacade.LoginUser();
                     if (m_FeatureFacade.UserConnected())
                     {
                          changeButtonMeaning(Properties.Resources.green_circle, logoutButton_Click, loginButton_Click, Properties.Resources.logout);
                          addDefualtControls();
-                         labelFirstUserMessage.Invoke(new Action(() =>labelFirstUserMessage.Text = $"Hi {m_FeatureFacade.GetLoginUserName()}"));
-                         labelSecondUserMessage.Invoke(new Action(() =>labelSecondUserMessage.Text = $"We invite you to select a feature"));
+                         labelFirstUserMessage.Text = $"Hi {m_FeatureFacade.GetLoginUserName()}";
+                         labelSecondUserMessage.Text = $"We invite you to select a feature";
                          pictureBoxMainScreen.BackgroundImage = Properties.Resources.Welcome;
                     }
                     else
@@ -47,7 +47,7 @@ namespace FacebookFeatures_UI
 
           private void loginButton_Click(object sender, EventArgs e)
           {
-               new Thread(loginUser).Start();
+               loginUser();
           }
 
           private void addDefualtControls()
