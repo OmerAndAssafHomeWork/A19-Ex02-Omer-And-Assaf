@@ -1,201 +1,203 @@
-﻿using SingletonCreator;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SingletonCreator;
 
 namespace FacebookFeatures_Engine
 {
-     public class ManagerProxy :IManager
-     {
-          private const int k_NotFound = -1, k_SaveDataMinutes = 20;
-          private string m_CurrentLoggedInUserId;
-          private EngineManager m_Manager;
-          private Dictionary<string, LoggedInUserData> m_LoggedInUsers = new Dictionary<string, LoggedInUserData>();
+    public class ManagerProxy : IManager
+    {
+        private const int k_NotFound = -1, k_SaveDataMinutes = 20;
+        private string m_CurrentLoggedInUserId;
+        private EngineManager m_Manager;
+        private Dictionary<string, LoggedInUserData> m_LoggedInUsers = new Dictionary<string, LoggedInUserData>();
 
-          private ManagerProxy()
-          {
-               m_Manager = EngineManager.GetEngineManager();
-          }
+        private ManagerProxy()
+        {
+            m_Manager = EngineManager.GetEngineManager();
+        }
 
-          public static ManagerProxy GetEngineManager()
-          {
-               return Singleton<ManagerProxy>.Instance;
-          }
+        public static ManagerProxy GetEngineManager()
+        {
+            return Singleton<ManagerProxy>.Instance;
+        }
 
-          public string GetFriendFirstName(int i_FriendIndex)
-          {
-               return m_Manager.GetFriendFirstName(i_FriendIndex);
-          }
+        public string GetFriendFirstName(int i_FriendIndex)
+        {
+            return m_Manager.GetFriendFirstName(i_FriendIndex);
+        }
 
-          public List<string> GetFriends()
-          {
-               m_LoggedInUsers[m_CurrentLoggedInUserId].m_Friends = m_Manager.m_Friends;
-               return m_Manager.GetFriends();
-          }
+        public List<string> GetFriends()
+        {
+            m_LoggedInUsers[m_CurrentLoggedInUserId].m_Friends = m_Manager.m_Friends;
 
-          public bool SetNextPictureAlbumIndex(int i_FriendIndex)
-          {
-               return m_Manager.SetNextPictureAlbumIndex(i_FriendIndex);
-          }
+            return m_Manager.GetFriends();
+        }
 
-          public bool SetPrevPictureAlbumIndex()
-          {
-               return m_Manager.SetPrevPictureAlbumIndex();
-          }
+        public bool SetNextPictureAlbumIndex(int i_FriendIndex)
+        {
+            return m_Manager.SetNextPictureAlbumIndex(i_FriendIndex);
+        }
 
-          public bool SetPrevPlaceHolderIndex()
-          {
-               return m_Manager.SetPrevPlaceHolderIndex();
-          }
+        public bool SetPrevPictureAlbumIndex()
+        {
+            return m_Manager.SetPrevPictureAlbumIndex();
+        }
 
-          public bool SetNextCheckinIndex(int i_FriendIndex)
-          {
-               return m_Manager.SetNextCheckinIndex(i_FriendIndex);
-          }
+        public bool SetPrevPlaceHolderIndex()
+        {
+            return m_Manager.SetPrevPlaceHolderIndex();
+        }
 
-          public bool SetNextPostIndex(int i_FriendIndex)
-          {
-               return m_Manager.SetNextPostIndex(i_FriendIndex);
-          }
+        public bool SetNextCheckinIndex(int i_FriendIndex)
+        {
+            return m_Manager.SetNextCheckinIndex(i_FriendIndex);
+        }
 
-          public bool SetNextTagIndex(int i_FriendIndex)
-          {
-               return m_Manager.SetNextTagIndex(i_FriendIndex);
-          }
+        public bool SetNextPostIndex(int i_FriendIndex)
+        {
+            return m_Manager.SetNextPostIndex(i_FriendIndex);
+        }
 
-          public bool SetNextAlbumIndex(int i_FriendIndex)
-          {
-               return m_Manager.SetNextAlbumIndex(i_FriendIndex);
-          }
+        public bool SetNextTagIndex(int i_FriendIndex)
+        {
+            return m_Manager.SetNextTagIndex(i_FriendIndex);
+        }
 
-          public string GetPost(int i_FriendIndex, ref string io_PictureURL)
-          {
-               return m_Manager.GetPost(i_FriendIndex, ref io_PictureURL);
-          }
+        public bool SetNextAlbumIndex(int i_FriendIndex)
+        {
+            return m_Manager.SetNextAlbumIndex(i_FriendIndex);
+        }
 
-          public string GetCheckin(int i_FriendIndex)
-          {
-               return m_Manager.GetCheckin(i_FriendIndex);
-          }
+        public string GetPost(int i_FriendIndex, ref string io_PictureURL)
+        {
+            return m_Manager.GetPost(i_FriendIndex, ref io_PictureURL);
+        }
 
-          public string GetTag(int i_FriendIndex)
-          {
-               return m_Manager.GetTag(i_FriendIndex);
-          }
+        public string GetCheckin(int i_FriendIndex)
+        {
+            return m_Manager.GetCheckin(i_FriendIndex);
+        }
 
-          public void InitialAlbumIndexes()
-          {
-               m_Manager.InitialAlbumIndexes();
-          }
+        public string GetTag(int i_FriendIndex)
+        {
+            return m_Manager.GetTag(i_FriendIndex);
+        }
 
-          public string GetFriendPicture(int i_FriendIndex)
-          {
-               return m_Manager.GetFriendPicture(i_FriendIndex);
-          }
+        public void InitialAlbumIndexes()
+        {
+            m_Manager.InitialAlbumIndexes();
+        }
 
-          public string GetPictureTitle(int i_FriendIndex)
-          {
-               return m_Manager.GetPictureTitle(i_FriendIndex);
-          }
+        public string GetFriendPicture(int i_FriendIndex)
+        {
+            return m_Manager.GetFriendPicture(i_FriendIndex);
+        }
 
-          public string GetAlbumName(int i_FriendIndex)
-          {
-               return m_Manager.GetAlbumName(i_FriendIndex);
-          }
+        public string GetPictureTitle(int i_FriendIndex)
+        {
+            return m_Manager.GetPictureTitle(i_FriendIndex);
+        }
 
-          public string GetPictureFromAlbum(int i_FriendIndex)
-          {
-               return m_Manager.GetPictureFromAlbum(i_FriendIndex);
-          }
+        public string GetAlbumName(int i_FriendIndex)
+        {
+            return m_Manager.GetAlbumName(i_FriendIndex);
+        }
 
-          public void Sort(int i_Index)
-          {
-               m_Manager.Sort(i_Index);
-          }
+        public string GetPictureFromAlbum(int i_FriendIndex)
+        {
+            return m_Manager.GetPictureFromAlbum(i_FriendIndex);
+        }
 
-          public string GetFriendBirthdayOrAgeAttribute(int i_FriendIndex, int i_SortingBySelectedIndex)
-          {
-               return m_Manager.GetFriendBirthdayOrAgeAttribute(i_FriendIndex, i_SortingBySelectedIndex);
-          }
+        public void Sort(int i_Index)
+        {
+            m_Manager.Sort(i_Index);
+        }
 
-          public FacebookUser FindBestFriend()
-          {
-               FacebookUser bestFriend = m_Manager.FindBestFriend();
-               if(bestFriend != null)
-               {
-                    m_LoggedInUsers[m_CurrentLoggedInUserId].m_BestFriend = bestFriend;
-               }
-               return bestFriend;
-          }
+        public string GetFriendBirthdayOrAgeAttribute(int i_FriendIndex, int i_SortingBySelectedIndex)
+        {
+            return m_Manager.GetFriendBirthdayOrAgeAttribute(i_FriendIndex, i_SortingBySelectedIndex);
+        }
 
-          public string GetBestFriendFullName()
-          {
-               return m_Manager.GetBestFriendFullName();
-          }
+        public FacebookUser FindBestFriend()
+        {
+            FacebookUser bestFriend = m_Manager.FindBestFriend();
+            if (bestFriend != null)
+            {
+                m_LoggedInUsers[m_CurrentLoggedInUserId].m_BestFriend = bestFriend;
+            }
 
-          public string GetBestFriendBirthdayDate()
-          {
-               return m_Manager.GetBestFriendBirthdayDate();
-          }
+            return bestFriend;
+        }
 
-          public bool IsBestFriendExist()
-          {
-               return m_Manager.IsBestFriendExist();
-          }
+        public string GetBestFriendFullName()
+        {
+            return m_Manager.GetBestFriendFullName();
+        }
 
-          public void CreateEvent(string i_Description, string i_Location)
-          {
-               m_Manager.CreateEvent(i_Description, i_Location);
-          }
+        public string GetBestFriendBirthdayDate()
+        {
+            return m_Manager.GetBestFriendBirthdayDate();
+        }
 
-          public string GetBestFriendGender()
-          {
-               return m_Manager.GetBestFriendGender();
-          }
+        public bool IsBestFriendExist()
+        {
+            return m_Manager.IsBestFriendExist();
+        }
 
-          public void LoginUser()
-          {
-               FacebookUser loggedInUser = m_Manager.ConnectToFacebook();
-               m_CurrentLoggedInUserId = loggedInUser.Id;
-               if (loggedInUser != null && m_LoggedInUsers.ContainsKey(loggedInUser.Id))
-               {
-                    TimeSpan deltaTime = DateTime.Now - m_LoggedInUsers[loggedInUser.Id].m_SaveTime;
-                    if(deltaTime.TotalMinutes <= k_SaveDataMinutes)
-                    {
-                         initialUserData(m_CurrentLoggedInUserId);
-                         m_Manager.InitialFindBestFriendData();
-                         m_Manager.SetFeaturesFriends();
-                    }
-               }
-               else
-               {
-                    m_Manager.LoginUser();
-                    m_LoggedInUsers.Add(m_CurrentLoggedInUserId, new LoggedInUserData());
-               }
-               m_LoggedInUsers[m_CurrentLoggedInUserId].m_SaveTime = DateTime.Now;
-          }
+        public void CreateEvent(string i_Description, string i_Location)
+        {
+            m_Manager.CreateEvent(i_Description, i_Location);
+        }
 
-          private void initialUserData(string i_Id)
-          {
-               m_Manager.m_Friends = m_LoggedInUsers[i_Id].m_Friends;
-               m_Manager.SetBestFriend(m_LoggedInUsers[i_Id].m_BestFriend);
-          }
-          
+        public string GetBestFriendGender()
+        {
+            return m_Manager.GetBestFriendGender();
+        }
 
-          public void LogoutUser()
-          {
-               m_Manager.LogoutUser();
-          }
+        public void LoginUser()
+        {
+            FacebookUser loggedInUser = m_Manager.ConnectToFacebook();
+            m_CurrentLoggedInUserId = loggedInUser.Id;
+            if (loggedInUser != null && m_LoggedInUsers.ContainsKey(loggedInUser.Id))
+            {
+                TimeSpan deltaTime = DateTime.Now - m_LoggedInUsers[loggedInUser.Id].m_SaveTime;
+                if (deltaTime.TotalMinutes <= k_SaveDataMinutes)
+                {
+                    initialUserData(m_CurrentLoggedInUserId);
+                    m_Manager.InitialFindBestFriendData();
+                    m_Manager.SetFeaturesFriends();
+                }
+            }
+            else
+            {
+                m_Manager.LoginUser();
+                m_LoggedInUsers.Add(m_CurrentLoggedInUserId, new LoggedInUserData());
+            }
 
-          public string GetLoginUserName()
-          {
-               return m_Manager.GetLoginUserName();
-          }
-          
-          public bool UserConnected()
-          {
-               return m_Manager.UserConnected();
-          }
-     }
+            m_LoggedInUsers[m_CurrentLoggedInUserId].m_SaveTime = DateTime.Now;
+        }
+
+        private void initialUserData(string i_Id)
+        {
+            m_Manager.m_Friends = m_LoggedInUsers[i_Id].m_Friends;
+            m_Manager.SetBestFriend(m_LoggedInUsers[i_Id].m_BestFriend);
+        }
+
+        public void LogoutUser()
+        {
+            m_Manager.LogoutUser();
+        }
+
+        public string GetLoginUserName()
+        {
+            return m_Manager.GetLoginUserName();
+        }
+
+        public bool UserConnected()
+        {
+            return m_Manager.UserConnected();
+        }
+    }
 }

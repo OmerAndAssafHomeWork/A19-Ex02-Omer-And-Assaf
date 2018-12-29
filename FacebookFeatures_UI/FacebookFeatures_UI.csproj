@@ -51,7 +51,9 @@
     <Compile Include="Common.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="FeaturesFacade.cs" />
+    <Compile Include="FeaturesFacade.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="FeaturesTypeEnum.cs" />
     <Compile Include="FindBestFriendControl.cs">
       <SubType>UserControl</SubType>

@@ -7,9 +7,12 @@ namespace FacebookFeatures_Engine
     public class FacebookUser
     {
         private User m_FacebookUser;
-          public string AmountOfAlbums { get; set; }
-          public string MostCommonCheckin { get; set; }
-          public string MostTaggedUser { get; set; }
+
+        public string AmountOfAlbums { get; set; }
+
+        public string MostCommonCheckin { get; set; }
+
+        public string MostTaggedUser { get; set; }
 
         public FacebookUser(User i_FacebookUser)
         {

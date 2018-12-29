@@ -5,10 +5,12 @@ using System.Text;
 
 namespace FacebookFeatures_Engine
 {
-     public class LoggedInUserData
-     {
-          public List<FacebookUser> m_Friends { get; set; }
-          public FacebookUser m_BestFriend { set; get; }
-          public DateTime m_SaveTime { set; get; }
-     }
+    public class LoggedInUserData
+    {
+        public List<FacebookUser> m_Friends { get; set; }
+
+        public FacebookUser m_BestFriend { get; set; }
+
+        public DateTime m_SaveTime { get; set; }
+    }
 }
