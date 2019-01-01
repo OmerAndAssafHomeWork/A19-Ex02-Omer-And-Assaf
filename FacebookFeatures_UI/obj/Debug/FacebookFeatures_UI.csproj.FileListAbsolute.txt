@@ -98,3 +98,4 @@ C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\FacebookFeatures_UI\obj\D
 C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\FacebookFeatures_UI\obj\Debug\FacebookFeatures_UI.pdb
 C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\FacebookFeatures_UI\bin\Debug\SingletonCreator.dll
 C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\FacebookFeatures_UI\bin\Debug\SingletonCreator.pdb
+C:\Users\user\Documents\GitHub\A19-Ex02-Omer-And-Assaf\FacebookFeatures_UI\bin\Debug\FbGraphApiWrapper.dll

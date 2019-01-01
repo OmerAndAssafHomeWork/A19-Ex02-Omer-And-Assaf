@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookFeatures_Engine", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonCreator", "SingletonCreator\SingletonCreator.csproj", "{60DECBEB-35B5-40D6-B888-3379FB3BA903}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E0C19DD-4820-47EA-87EC-3B0294F8EBFF}"
+	ProjectSection(SolutionItems) = preProject
+		A19 Ex02 Omer 205706278 Assaf 311305098.txt = A19 Ex02 Omer 205706278 Assaf 311305098.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
