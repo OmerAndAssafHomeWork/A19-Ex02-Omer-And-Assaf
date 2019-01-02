@@ -78,6 +78,7 @@ namespace FacebookFeatures_UI
                          m_ContainerScreen.Invoke(new Action(() => m_ContainerScreen.Controls.Clear()));
                          m_ContainerScreen.Invoke(new Action(() => m_ContainerScreen.Controls.Add(m_SortingFriends)));
                          m_SortingFriends.FetchFriends();
+                         m_SortingFriends.SetListBoxSelectedIndex();
                     }
                }
                else

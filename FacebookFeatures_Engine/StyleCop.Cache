@@ -99,10 +99,13 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <project key="715393186">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="EngineManager.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:50:29.014</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -125,7 +128,7 @@
   <sourcecode name="FacebookUser.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:50:23.154</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -148,7 +151,7 @@
   <sourcecode name="FindBestFriendFeatureEngine.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:50:18.529</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -171,7 +174,7 @@
   <sourcecode name="IFilterSort.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:50:14.170</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -194,7 +197,7 @@
   <sourcecode name="IManager.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:50:10.176</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -217,7 +220,7 @@
   <sourcecode name="LoggedInUserData.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:50:04.769</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -240,7 +243,7 @@
   <sourcecode name="ManagerProxy.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:49:59.910</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -263,7 +266,7 @@
   <sourcecode name="SortingBy.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:49:53.051</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -286,7 +289,7 @@
   <sourcecode name="SortingFriendsFeatureEngine.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/01 23:56:56.290</settingsFile>
+      <settingsFile>2019/01/02 00:00:55.920</settingsFile>
       <sourceFile>2019/01/01 23:49:48.175</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -306,7 +309,4 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="715393186">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
 </stylecopresultscache>

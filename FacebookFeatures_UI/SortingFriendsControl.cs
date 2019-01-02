@@ -15,6 +15,7 @@ namespace FacebookFeatures_UI
           private IManager m_EngineManager = null;
           private int m_currentFriendIndex = k_InitialValue;
           private string m_CurrentCalculationSortingFriendsFeature = null;
+          private int m_SelectedIndex = k_InitialValue;
 
           private event GetAttributeInfo GetAttributeInfoNotifier;
 
@@ -44,18 +45,21 @@ namespace FacebookFeatures_UI
                disableFirstFeatureControls();
           }
 
+          public void SetListBoxSelectedIndex()
+          {
+
+               listBoxFriends.BeginInvoke(new Action(() => listBoxFriends.SelectedIndex = m_SelectedIndex));
+          }
+
           public void FetchFriends()
           {
                List<string> friendsName = m_EngineManager.GetFriends();
-               int selectedIndex = k_InitialValue;
-               listBoxFriends.Invoke(new Action(() => selectedIndex = listBoxFriends.SelectedIndex));
+               listBoxFriends.Invoke(new Action(() => m_SelectedIndex = listBoxFriends.SelectedIndex));
                listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Clear()));
                foreach (string friendName in friendsName)
                {
                     listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Add(friendName)));
                }
-
-               listBoxFriends.BeginInvoke(new Action(() => listBoxFriends.SelectedIndex = selectedIndex));
           }
 
           private string getPosts()

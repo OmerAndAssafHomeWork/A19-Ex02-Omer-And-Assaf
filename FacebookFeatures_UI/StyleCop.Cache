@@ -119,10 +119,13 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <project key="815045845">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="FeaturesTypeEnum.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2019/01/01 23:49:17.493</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -145,7 +148,7 @@
   <sourcecode name="Program.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2019/01/01 23:49:03.344</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -168,7 +171,7 @@
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2018/12/01 22:50:05.000</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -191,7 +194,7 @@
   <sourcecode name="Resources.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2018/12/18 17:29:36.602</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -214,7 +217,7 @@
   <sourcecode name="FacebookFeaturesForm.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2019/01/01 23:49:31.196</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -733,7 +736,7 @@
   <sourcecode name="FacebookFeaturesForm.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2018/12/18 17:34:50.234</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -767,7 +770,7 @@
   <sourcecode name="FindBestFriendControl.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2018/12/22 15:16:57.542</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -801,7 +804,7 @@
   <sourcecode name="Settings.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2018/12/18 17:29:37.189</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -824,8 +827,8 @@
   <sourcecode name="SortingFriendsControl.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
-      <sourceFile>2019/01/01 23:48:55.998</sourceFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
+      <sourceFile>2019/01/02 00:02:02.343</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-1249997595</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -4115,7 +4118,7 @@
   <sourcecode name="SortingFriendsControl.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2019/01/01 23:43:47.928</styleCop>
-      <settingsFile>2019/01/02 00:00:59.326</settingsFile>
+      <settingsFile>2019/01/02 00:06:58.836</settingsFile>
       <sourceFile>2018/12/18 17:34:12.724</sourceFile>
       <parser>2019/01/01 23:43:47.928</parser>
       <StyleCop.CSharp.DocumentationRules>2019/01/01 23:43:47.928</StyleCop.CSharp.DocumentationRules>
@@ -4151,7 +4154,4 @@
       </violation>
     </violations>
   </sourcecode>
-  <project key="815045845">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
 </stylecopresultscache>
