@@ -15,21 +15,21 @@ namespace FacebookFeatures_Engine
           private const int k_MonthLength = 2, k_DayLength = 2, k_YearLength = 4;
           private const int k_BestFriendNotFound = -1;
 
-          public FacebookUser m_BestFriend { get; set; }
+          public FacebookUser BestFriend { get; set; }
 
-          public List<FacebookUser> m_Friends { get; set; }
+          public List<FacebookUser> Friends { get; set; }
 
-          public string m_LoggedInUserId { get; set; }
+          public string LoggedInUserId { get; set; }
 
           public event CreateEvent CreateEventNotifier;
 
           public int FindBestFriend()
           {
                int bestFriendIndex = k_BestFriendNotFound;
-               if (m_BestFriend == null)
+               if (BestFriend == null)
                {
                     Dictionary<FacebookUser, int> friendsHierarchy = new Dictionary<FacebookUser, int>();
-                    foreach (FacebookUser friend in m_Friends)
+                    foreach (FacebookUser friend in Friends)
                     {
                          foreach (Post currentPost in friend.Posts)
                          {
@@ -53,10 +53,10 @@ namespace FacebookFeatures_Engine
           private int searchBestFriendIndex()
           {
                int bestFriendIndex = k_BestFriendNotFound;
-               foreach (FacebookUser friend in m_Friends)
+               foreach (FacebookUser friend in Friends)
                {
                     bestFriendIndex++;
-                    if (m_Friends[bestFriendIndex].Id == m_BestFriend.Id)
+                    if (Friends[bestFriendIndex].Id == BestFriend.Id)
                     {
                          break;
                     }
@@ -71,7 +71,7 @@ namespace FacebookFeatures_Engine
                int index = 0;
                int bestFriendcommonFriendsAmount = 0;
 
-               foreach (FacebookUser friend in m_Friends)
+               foreach (FacebookUser friend in Friends)
                {
                     if (i_FriendsHierarchy.ContainsKey(friend))
                     {
@@ -80,14 +80,14 @@ namespace FacebookFeatures_Engine
                          {
                               if (i_FriendsHierarchy[friend] > bestFriendcommonFriendsAmount)
                               {
-                                   m_BestFriend = friend;
+                                   BestFriend = friend;
                                    bestFriendcommonFriendsAmount = i_FriendsHierarchy[friend];
                                    bestFriendIndex = index;
                               }
                               else if (i_FriendsHierarchy[friend] == bestFriendcommonFriendsAmount)
                               {
-                                   m_BestFriend = getEalierBirthdayFriend(friend, m_BestFriend);
-                                   if (m_BestFriend == friend)
+                                   BestFriend = getEalierBirthdayFriend(friend, BestFriend);
+                                   if (BestFriend == friend)
                                    {
                                         bestFriendIndex = index;
                                    }
@@ -109,7 +109,7 @@ namespace FacebookFeatures_Engine
                     {
                          foreach (User currentFriend in i_CurrentPost.TargetUsers)
                          {
-                              if (currentFriend.Id == m_LoggedInUserId)
+                              if (currentFriend.Id == LoggedInUserId)
                               {
                                    if (i_FriendsHierarchy.ContainsKey(i_Friend))
                                    {
@@ -135,7 +135,7 @@ namespace FacebookFeatures_Engine
                {
                     foreach (User currentFriend in i_CurrentPost.WithUsers)
                     {
-                         if (currentFriend.Id == m_LoggedInUserId)
+                         if (currentFriend.Id == LoggedInUserId)
                          {
                               if (i_FriendsHierarchy.ContainsKey(i_Friend))
                               {
@@ -160,7 +160,7 @@ namespace FacebookFeatures_Engine
                {
                     foreach (Comment currentComment in i_CurrentPost.Comments)
                     {
-                         if (currentComment.From != null && currentComment.From.Id == m_LoggedInUserId)
+                         if (currentComment.From != null && currentComment.From.Id == LoggedInUserId)
                          {
                               if (i_FriendsHierarchy.ContainsKey(i_Friend))
                               {
@@ -185,7 +185,7 @@ namespace FacebookFeatures_Engine
                {
                     foreach (User currentUser in i_CurrentPost.LikedBy)
                     {
-                         if (currentUser.Id == m_LoggedInUserId)
+                         if (currentUser.Id == LoggedInUserId)
                          {
                               if (i_FriendsHierarchy.ContainsKey(i_Friend))
                               {
@@ -219,17 +219,17 @@ namespace FacebookFeatures_Engine
 
           public string GetBestFriendFullName()
           {
-               return $"{m_BestFriend.FirstName} {m_BestFriend.LastName}";
+               return $"{BestFriend.FirstName} {BestFriend.LastName}";
           }
 
           public string GetBestFriendBirthdayDate()
           {
-               return m_BestFriend.Birthday;
+               return BestFriend.Birthday;
           }
 
           public bool IsBestFriendExist()
           {
-               return m_BestFriend != null;
+               return BestFriend != null;
           }
 
           public void CreateEvent(string i_Description, string i_Location)
@@ -237,12 +237,12 @@ namespace FacebookFeatures_Engine
                DateTime startTime, endTime;
                int birthdayYearDate = DateTime.Now.Month >= 11 ? DateTime.Now.Year + 1 : DateTime.Now.Year;
 
-               startTime = new DateTime(birthdayYearDate, int.Parse(m_BestFriend.Birthday.Substring(k_MonthIndex, k_MonthLength)), int.Parse(m_BestFriend.Birthday.Substring(k_DayIndex, k_DayLength)), 19, 0, 0);
-               endTime = new DateTime(birthdayYearDate, int.Parse(m_BestFriend.Birthday.Substring(k_MonthIndex, k_MonthLength)), int.Parse(m_BestFriend.Birthday.Substring(k_DayIndex, k_DayLength)), 22, 0, 0);
+               startTime = new DateTime(birthdayYearDate, int.Parse(BestFriend.Birthday.Substring(k_MonthIndex, k_MonthLength)), int.Parse(BestFriend.Birthday.Substring(k_DayIndex, k_DayLength)), 19, 0, 0);
+               endTime = new DateTime(birthdayYearDate, int.Parse(BestFriend.Birthday.Substring(k_MonthIndex, k_MonthLength)), int.Parse(BestFriend.Birthday.Substring(k_DayIndex, k_DayLength)), 22, 0, 0);
                try
                {
                     CreateEventNotifier.Invoke(
-                         $"Suprise party to {m_BestFriend.FirstName} ",
+                         $"Suprise party to {BestFriend.FirstName} ",
                          startTime,
                          endTime,
                          i_Description,
@@ -259,7 +259,7 @@ namespace FacebookFeatures_Engine
                FacebookUser mostTagged = null;
                Dictionary<FacebookUser, int> taggedUsers = new Dictionary<FacebookUser, int>();
 
-               foreach (Post currentPost in m_BestFriend.Posts)
+               foreach (Post currentPost in BestFriend.Posts)
                {
                     try
                     {
@@ -307,7 +307,7 @@ namespace FacebookFeatures_Engine
           private FacebookUser findFriend(User i_Friend)
           {
                FacebookUser currentFriend = null;
-               foreach (FacebookUser friend in m_Friends)
+               foreach (FacebookUser friend in Friends)
                {
                     if (friend.Id == i_Friend.Id)
                     {
@@ -324,7 +324,7 @@ namespace FacebookFeatures_Engine
                string mostTagged = null;
                Dictionary<string, int> checkIns = new Dictionary<string, int>();
 
-               foreach (Checkin currentCheckIn in m_BestFriend.Checkins)
+               foreach (Checkin currentCheckIn in BestFriend.Checkins)
                {
                     if (checkIns.ContainsKey(currentCheckIn.Place.Name))
                     {
@@ -353,12 +353,12 @@ namespace FacebookFeatures_Engine
 
           public int GetBestFriendAmountOfAlbums()
           {
-               return m_BestFriend.Albums.Count;
+               return BestFriend.Albums.Count;
           }
 
           public string GetBestFriendGender()
           {
-               return m_BestFriend.Gender.ToString();
+               return BestFriend.Gender.ToString();
           }
      }
 }

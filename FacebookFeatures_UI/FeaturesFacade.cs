@@ -56,7 +56,7 @@ namespace FacebookFeatures_UI
                {
                     case FeaturesTypeEnum.SortingFriends:
                          {
-                              Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
+                              Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                               new Thread(displaySortingFriendsFeature).Start();
                               break;
                          }
@@ -86,7 +86,7 @@ namespace FacebookFeatures_UI
                     m_ContainerScreen.Invoke(new Action(() => MessageBox.Show(Common.NoConnectionToFacebook)));
                }
 
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
+               Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
           }
 
           private void displayFindBestFriendFeature()

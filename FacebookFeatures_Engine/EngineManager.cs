@@ -17,18 +17,18 @@ namespace FacebookFeatures_Engine
 
           private readonly object r_LogoutObjectContext = new object();
 
-          public FacebookUser m_LoggedInUser { get; set; }
+          public FacebookUser LoggedInUser { get; set; }
 
           private SortingFriendsFeatureEngine m_SortingFriendsEngine;
           private FindBestFriendFeatureEngine m_FindBestFriendEngine;
 
-          public List<FacebookUser> m_Friends { get; set; }
+          public List<FacebookUser> Friends { get; set; }
 
           private EngineManager()
           {
                m_SortingFriendsEngine = new SortingFriendsFeatureEngine();
                m_FindBestFriendEngine = new FindBestFriendFeatureEngine();
-               m_SortingFriendsEngine.m_FetchFriendsNotifier += fetchFriends;
+               m_SortingFriendsEngine.FetchFriendsNotifier += fetchFriends;
           }
 
           public static EngineManager GetEngineManager()
@@ -140,15 +140,15 @@ namespace FacebookFeatures_Engine
                     setMyBestFriend(bestFriendIndex);
                }
 
-               return m_FindBestFriendEngine.m_BestFriend;
+               return m_FindBestFriendEngine.BestFriend;
           }
 
           private void setMyBestFriend(int i_BestFriendIndex)
           {
-               m_FindBestFriendEngine.m_BestFriend = m_Friends[i_BestFriendIndex];
-               m_FindBestFriendEngine.m_BestFriend.AmountOfAlbums = getBestFriendAmountOfAlbums().ToString();
-               m_FindBestFriendEngine.m_BestFriend.MostTaggedUser = getBestFriendTopTag() ?? "No Tags Available";
-               m_FindBestFriendEngine.m_BestFriend.MostCommonCheckin = getBestFriendTopCheckIn() ?? "No Checkins Available";
+               m_FindBestFriendEngine.BestFriend = Friends[i_BestFriendIndex];
+               m_FindBestFriendEngine.BestFriend.AmountOfAlbums = getBestFriendAmountOfAlbums().ToString();
+               m_FindBestFriendEngine.BestFriend.MostTaggedUser = getBestFriendTopTag() ?? "No Tags Available";
+               m_FindBestFriendEngine.BestFriend.MostCommonCheckin = getBestFriendTopCheckIn() ?? "No Checkins Available";
           }
 
           public string GetBestFriendFullName()
@@ -193,16 +193,16 @@ namespace FacebookFeatures_Engine
 
           public FacebookUser ConnectToFacebook()
           {
-               if (m_LoggedInUser == null)
+               if (LoggedInUser == null)
                {
                     LoginResult result = FacebookService.Login(k_AppId, k_PublicProfile, k_UsersFriend, k_UserBirthday, k_UserGender, k_UserLikes, k_UserPosts, k_UserTaggedPlace);
                     if (!string.IsNullOrEmpty(result.AccessToken))
                     {
-                         m_LoggedInUser = new FacebookUser(result.LoggedInUser);
+                         LoggedInUser = new FacebookUser(result.LoggedInUser);
                     }
                }
 
-               return m_LoggedInUser;
+               return LoggedInUser;
           }
 
           public void LoginUser()
@@ -211,7 +211,7 @@ namespace FacebookFeatures_Engine
                {
                     FacebookService.s_CollectionLimit = k_CollectionsLimit;
                     ConnectToFacebook();
-                    if (m_LoggedInUser != null)
+                    if (LoggedInUser != null)
                     {
                          fetchFriends();
                     }
@@ -226,45 +226,45 @@ namespace FacebookFeatures_Engine
 
           public void InitialFindBestFriendData()
           {
-               m_FindBestFriendEngine.m_LoggedInUserId = m_LoggedInUser.Id;
-               m_FindBestFriendEngine.CreateEventNotifier += m_LoggedInUser.CreateEvent;
+               m_FindBestFriendEngine.LoggedInUserId = LoggedInUser.Id;
+               m_FindBestFriendEngine.CreateEventNotifier += LoggedInUser.CreateEvent;
           }
 
           public void LogoutUser()
           {
                lock (r_LogoutObjectContext)
                {
-                    if (m_LoggedInUser != null)
+                    if (LoggedInUser != null)
                     {
                          FacebookService.Logout(null);
-                         m_Friends = null;
-                         m_LoggedInUser = null;
-                         m_FindBestFriendEngine.m_BestFriend = null;
+                         Friends = null;
+                         LoggedInUser = null;
+                         m_FindBestFriendEngine.BestFriend = null;
                     }
                }
           }
 
           public string GetLoginUserName()
           {
-               return m_LoggedInUser.Name;
+               return LoggedInUser.Name;
           }
 
           public void SetBestFriend(FacebookUser i_BestFriend)
           {
-               m_FindBestFriendEngine.m_BestFriend = i_BestFriend;
+               m_FindBestFriendEngine.BestFriend = i_BestFriend;
           }
 
           public bool UserConnected()
           {
-               return m_LoggedInUser != null;
+               return LoggedInUser != null;
           }
 
           private void fetchFriends()
           {
-               m_Friends = new List<FacebookUser>();
-               foreach (User friend in m_LoggedInUser.Friends)
+               Friends = new List<FacebookUser>();
+               foreach (User friend in LoggedInUser.Friends)
                {
-                    m_Friends.Add(new FacebookUser(friend));
+                    Friends.Add(new FacebookUser(friend));
                }
 
                SetFeaturesFriends();
@@ -272,8 +272,8 @@ namespace FacebookFeatures_Engine
 
           public void SetFeaturesFriends()
           {
-               m_SortingFriendsEngine.m_Friends = m_Friends;
-               m_FindBestFriendEngine.m_Friends = m_Friends;
+               m_SortingFriendsEngine.Friends = Friends;
+               m_FindBestFriendEngine.Friends = Friends;
           }
      }
 }

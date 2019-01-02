@@ -13,13 +13,13 @@ namespace FacebookFeatures_UI
           private static readonly string sr_NoConnectionToFacebook = "First you need to connect to your facebook account";
           private static readonly string sr_FacebookError = "facebook Internal Error";
 
-          public static int s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature { get; set; }
+          public static int AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature { get; set; }
 
-          public static string s_CurrentCalculationSortingFriendsFeature { get; set; }
+          public static string CurrentCalculationSortingFriendsFeature { get; set; }
 
-          public static int s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature { get; set; }
+          public static int AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature { get; set; }
 
-          public static string s_CurrentCalculationFindBestFriendFeature { get; set; }
+          public static string CurrentCalculationFindBestFriendFeature { get; set; }
 
           public static void SetVisibilityControls(bool i_Visiblity, params Control[] i_ControlsList)
           {

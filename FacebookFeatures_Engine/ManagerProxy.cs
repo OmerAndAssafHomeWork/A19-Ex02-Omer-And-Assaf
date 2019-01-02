@@ -30,7 +30,7 @@ namespace FacebookFeatures_Engine
 
           public List<string> GetFriends()
           {
-               m_LoggedInUsers[m_CurrentLoggedInUserId].m_Friends = m_Manager.m_Friends;
+               m_LoggedInUsers[m_CurrentLoggedInUserId].Friends = m_Manager.Friends;
 
                return m_Manager.GetFriends();
           }
@@ -125,7 +125,7 @@ namespace FacebookFeatures_Engine
                FacebookUser bestFriend = m_Manager.FindBestFriend();
                if (bestFriend != null)
                {
-                    m_LoggedInUsers[m_CurrentLoggedInUserId].m_BestFriend = bestFriend;
+                    m_LoggedInUsers[m_CurrentLoggedInUserId].BestFriend = bestFriend;
                }
 
                return bestFriend;
@@ -162,7 +162,7 @@ namespace FacebookFeatures_Engine
                m_CurrentLoggedInUserId = loggedInUser.Id;
                if (loggedInUser != null && m_LoggedInUsers.ContainsKey(loggedInUser.Id))
                {
-                    TimeSpan deltaTime = DateTime.Now - m_LoggedInUsers[loggedInUser.Id].m_SaveTime;
+                    TimeSpan deltaTime = DateTime.Now - m_LoggedInUsers[loggedInUser.Id].SaveTime;
                     if (deltaTime.TotalMinutes <= k_SaveDataMinutes)
                     {
                          initialUserData(m_CurrentLoggedInUserId);
@@ -176,13 +176,13 @@ namespace FacebookFeatures_Engine
                     m_LoggedInUsers.Add(m_CurrentLoggedInUserId, new LoggedInUserData());
                }
 
-               m_LoggedInUsers[m_CurrentLoggedInUserId].m_SaveTime = DateTime.Now;
+               m_LoggedInUsers[m_CurrentLoggedInUserId].SaveTime = DateTime.Now;
           }
 
           private void initialUserData(string i_Id)
           {
-               m_Manager.m_Friends = m_LoggedInUsers[i_Id].m_Friends;
-               m_Manager.SetBestFriend(m_LoggedInUsers[i_Id].m_BestFriend);
+               m_Manager.Friends = m_LoggedInUsers[i_Id].Friends;
+               m_Manager.SetBestFriend(m_LoggedInUsers[i_Id].BestFriend);
           }
 
           public void LogoutUser()

@@ -17,20 +17,20 @@ namespace FacebookFeatures_Engine
           private int m_AlbumPictureIndex = 0;
           private int m_PlaceHolderIndex = 0;
 
-          public event FetchFriends m_FetchFriendsNotifier;
+          public event FetchFriends FetchFriendsNotifier;
 
-          public List<FacebookUser> m_Friends { get; set; }
+          public List<FacebookUser> Friends { get; set; }
 
           public string GetFriendFirstName(int i_FriendIndex)
           {
-               return m_Friends[i_FriendIndex].FirstName;
+               return Friends[i_FriendIndex].FirstName;
           }
 
           public List<string> GetFriends()
           {
                List<string> friends = new List<string>();
 
-               foreach (FacebookUser friend in m_Friends)
+               foreach (FacebookUser friend in Friends)
                {
                     friends.Add($"{friend.FirstName} {friend.LastName}");
                }
@@ -41,9 +41,9 @@ namespace FacebookFeatures_Engine
           public string GetPictureFromAlbum(int i_FriendIndex)
           {
                string pictureURL = null;
-               if (m_Friends[i_FriendIndex].Albums.Count > 0 && m_Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos.Count > 0)
+               if (Friends[i_FriendIndex].Albums.Count > 0 && Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos.Count > 0)
                {
-                    pictureURL = m_Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos[m_AlbumPictureIndex].Images[0].Source;
+                    pictureURL = Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos[m_AlbumPictureIndex].Images[0].Source;
                }
 
                return pictureURL;
@@ -51,17 +51,17 @@ namespace FacebookFeatures_Engine
 
           public string GetAlbumName(int i_FriendIndex = k_NotInitialized)
           {
-               return m_Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Name;
+               return Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Name;
           }
 
           public string GetPictureTitle(int i_FriendIndex)
           {
-               return m_Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos[m_AlbumPictureIndex].Name;
+               return Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos[m_AlbumPictureIndex].Name;
           }
 
           public string GetFriendPicture(int i_FriendIndex)
           {
-               return m_Friends[i_FriendIndex].PictureLargeURL;
+               return Friends[i_FriendIndex].PictureLargeURL;
           }
 
           public void InitialAlbumIndexes()
@@ -72,9 +72,9 @@ namespace FacebookFeatures_Engine
           public string GetTag(int i_FriendIndex)
           {
                string tag = null;
-               if (m_Friends[i_FriendIndex].PhotosTaggedIn.Count > 0)
+               if (Friends[i_FriendIndex].PhotosTaggedIn.Count > 0)
                {
-                    tag = m_Friends[i_FriendIndex].PhotosTaggedIn[m_PlaceHolderIndex].Message;
+                    tag = Friends[i_FriendIndex].PhotosTaggedIn[m_PlaceHolderIndex].Message;
                }
 
                return tag;
@@ -83,9 +83,9 @@ namespace FacebookFeatures_Engine
           public string GetCheckin(int i_FriendIndex)
           {
                string checkin = null;
-               if (m_Friends[i_FriendIndex].Checkins.Count > 0)
+               if (Friends[i_FriendIndex].Checkins.Count > 0)
                {
-                    checkin = m_Friends[i_FriendIndex].Checkins[m_PlaceHolderIndex].Message;
+                    checkin = Friends[i_FriendIndex].Checkins[m_PlaceHolderIndex].Message;
                }
 
                return checkin;
@@ -96,32 +96,32 @@ namespace FacebookFeatures_Engine
                const string k_EmptyPost = "Empty Post";
                string post = null;
 
-               if (m_Friends[i_FriendIndex].Posts.Count > 0)
+               if (Friends[i_FriendIndex].Posts.Count > 0)
                {
-                    if (m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Message != null)
+                    if (Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Message != null)
                     {
-                         post = m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Message;
+                         post = Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Message;
                     }
-                    else if (m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Caption != null)
+                    else if (Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Caption != null)
                     {
-                         post = m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Caption;
+                         post = Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Caption;
                     }
-                    else if (m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Description != null)
+                    else if (Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Description != null)
                     {
-                         post = m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Description;
+                         post = Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Description;
                     }
-                    else if (m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Name != null)
+                    else if (Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Name != null)
                     {
-                         post = m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Name;
+                         post = Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Name;
                     }
                     else
                     {
                          post = k_EmptyPost;
                     }
 
-                    if (m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Type == Post.eType.photo)
+                    if (Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].Type == Post.eType.photo)
                     {
-                         io_PictureURL = m_Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].PictureURL;
+                         io_PictureURL = Friends[i_FriendIndex].Posts[m_PlaceHolderIndex].PictureURL;
                     }
                }
 
@@ -131,7 +131,7 @@ namespace FacebookFeatures_Engine
           public bool SetNextAlbumIndex(int i_FriendIndex)
           {
                var setNextAlbumSucceed = false;
-               if (m_PlaceHolderIndex + 1 < m_Friends[i_FriendIndex].Albums.Count)
+               if (m_PlaceHolderIndex + 1 < Friends[i_FriendIndex].Albums.Count)
                {
                     setNextAlbumSucceed = true;
                     m_PlaceHolderIndex++;
@@ -144,7 +144,7 @@ namespace FacebookFeatures_Engine
           public bool SetNextTagIndex(int i_FriendIndex)
           {
                var setNextTagSucceed = false;
-               if (m_PlaceHolderIndex + 1 < m_Friends[i_FriendIndex].PhotosTaggedIn.Count)
+               if (m_PlaceHolderIndex + 1 < Friends[i_FriendIndex].PhotosTaggedIn.Count)
                {
                     setNextTagSucceed = true;
                     m_PlaceHolderIndex++;
@@ -156,7 +156,7 @@ namespace FacebookFeatures_Engine
           public bool SetNextPostIndex(int i_FriendIndex)
           {
                bool setNextTagSucceed = false;
-               if (m_PlaceHolderIndex + 1 < m_Friends[i_FriendIndex].Posts.Count)
+               if (m_PlaceHolderIndex + 1 < Friends[i_FriendIndex].Posts.Count)
                {
                     setNextTagSucceed = true;
                     m_PlaceHolderIndex++;
@@ -168,7 +168,7 @@ namespace FacebookFeatures_Engine
           public bool SetNextCheckinIndex(int i_FriendIndex)
           {
                bool setNextCheckinSucceed = false;
-               if (m_PlaceHolderIndex + 1 < m_Friends[i_FriendIndex].Checkins.Count)
+               if (m_PlaceHolderIndex + 1 < Friends[i_FriendIndex].Checkins.Count)
                {
                     setNextCheckinSucceed = true;
                     m_PlaceHolderIndex++;
@@ -207,7 +207,7 @@ namespace FacebookFeatures_Engine
           public bool SetNextPictureAlbumIndex(int i_FriendIndex)
           {
                bool setNextPictureInAlbumSucceed = false;
-               if (m_AlbumPictureIndex + 1 < m_Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos.Count)
+               if (m_AlbumPictureIndex + 1 < Friends[i_FriendIndex].Albums[m_PlaceHolderIndex].Photos.Count)
                {
                     setNextPictureInAlbumSucceed = true;
                     m_AlbumPictureIndex++;
@@ -225,11 +225,11 @@ namespace FacebookFeatures_Engine
                {
                     if (sortingOption == eSortingBy.Birthday)
                     {
-                         returnValue = $"Birthday Date: {m_Friends[i_FriendIndex].Birthday}";
+                         returnValue = $"Birthday Date: {Friends[i_FriendIndex].Birthday}";
                     }
                     else if (sortingOption == eSortingBy.Age)
                     {
-                         string birthday = m_Friends[i_FriendIndex].Birthday;
+                         string birthday = Friends[i_FriendIndex].Birthday;
                          DateTime birthdayDate = new DateTime(
                               int.Parse(birthday.Substring(k_YearIndex, k_YearLength)),
                               int.Parse(birthday.Substring(k_MonthIndex, k_MonthLength)),
@@ -253,55 +253,55 @@ namespace FacebookFeatures_Engine
                {
                     case eSortingBy.Default:
                          {
-                              m_FetchFriendsNotifier.Invoke();
+                              FetchFriendsNotifier.Invoke();
                               break;
                          }
 
                     case eSortingBy.FirstName:
                          {
-                              m_Friends.Sort(firstNameComparison);
+                              Friends.Sort(firstNameComparison);
                               break;
                          }
 
                     case eSortingBy.LastName:
                          {
-                              m_Friends.Sort(lastNameComparison);
+                              Friends.Sort(lastNameComparison);
                               break;
                          }
 
                     case eSortingBy.Birthday:
                          {
-                              m_Friends.Sort(birthDayComparison);
+                              Friends.Sort(birthDayComparison);
                               break;
                          }
 
                     case eSortingBy.Age:
                          {
-                              m_Friends.Sort(ageComparison);
+                              Friends.Sort(ageComparison);
                               break;
                          }
 
                     case eSortingBy.MostPosts:
                          {
-                              m_Friends.Sort(postsComparison);
+                              Friends.Sort(postsComparison);
                               break;
                          }
 
                     case eSortingBy.MostCheckIns:
                          {
-                              m_Friends.Sort(checkInsComparison);
+                              Friends.Sort(checkInsComparison);
                               break;
                          }
 
                     case eSortingBy.MostTags:
                          {
-                              m_Friends.Sort(tagsComparison);
+                              Friends.Sort(tagsComparison);
                               break;
                          }
 
                     case eSortingBy.MostAlbums:
                          {
-                              m_Friends.Sort(albumsComparison);
+                              Friends.Sort(albumsComparison);
                               break;
                          }
                }

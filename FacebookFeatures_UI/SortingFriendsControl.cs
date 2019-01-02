@@ -47,7 +47,6 @@ namespace FacebookFeatures_UI
 
           public void SetListBoxSelectedIndex()
           {
-
                listBoxFriends.BeginInvoke(new Action(() => listBoxFriends.SelectedIndex = m_SelectedIndex));
           }
 
@@ -201,17 +200,17 @@ namespace FacebookFeatures_UI
                          }
                }
 
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
+               Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
           }
 
           private void setAttribute(string i_CurrentCalaculationMessage)
           {
-               if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
+               if (Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
                {
-                    Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
+                    Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                     m_CurrentCalculationSortingFriendsFeature = i_CurrentCalaculationMessage;
                     GetAttributeInfoNotifier.Invoke();
-                    Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
+                    Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
                }
                else
                {
@@ -223,9 +222,9 @@ namespace FacebookFeatures_UI
           {
                if (listBoxFriends.SelectedIndex != k_InitialValue)
                {
-                    if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
+                    if (Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
                     {
-                         Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
+                         Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                          new Thread(displayFriendAttributes).Start();
                     }
                     else
@@ -248,7 +247,7 @@ namespace FacebookFeatures_UI
                     string friendImageURL = m_EngineManager.GetFriendPicture(selectedIndex);
                     if (friendImageURL != null)
                     {
-                         Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
+                         Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                          new Thread(suitFunctionalityBySelectedIndex).Start();
                          pictureBoxFriend.LoadAsync(friendImageURL);
                          pictureBoxFriend.Invoke(new Action(() => pictureBoxFriend.Visible = true));
@@ -263,7 +262,7 @@ namespace FacebookFeatures_UI
                     this.Invoke(new Action(() => MessageBox.Show(k_MoreThanAPersonSelectedError)));
                }
 
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
+               Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
           }
 
           private void setBirthdayOrAgeAttribute()
@@ -368,9 +367,9 @@ namespace FacebookFeatures_UI
 
           private void comboBoxSortingOption_SelectedIndexChanged(object sender, EventArgs e)
           {
-               if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
+               if (Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature == 0)
                {
-                    Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
+                    Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                     m_CurrentCalculationSortingFriendsFeature = "Selected Friend";
                     new Thread(sortFriendsByUserChoice).Start();
                }
@@ -405,7 +404,7 @@ namespace FacebookFeatures_UI
                          comboBoxSortingOptions.Invoke(new Action(() => comboBoxSortingOptions.SelectedIndex = k_InitialValue));
                     }
 
-                    Common.s_AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
+                    Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
                }
                catch (Exception)
                {

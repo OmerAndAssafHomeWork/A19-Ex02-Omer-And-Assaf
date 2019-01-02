@@ -7,10 +7,10 @@ namespace FacebookFeatures_Engine
 {
      public class LoggedInUserData
      {
-          public List<FacebookUser> m_Friends { get; set; }
+          public List<FacebookUser> Friends { get; set; }
 
-          public FacebookUser m_BestFriend { get; set; }
+          public FacebookUser BestFriend { get; set; }
 
-          public DateTime m_SaveTime { get; set; }
+          public DateTime SaveTime { get; set; }
      }
 }

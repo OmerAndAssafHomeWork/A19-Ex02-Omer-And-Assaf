@@ -42,15 +42,15 @@ namespace FacebookFeatures_UI
 
           private void buttonFindBestFriend_Click(object sender, EventArgs e)
           {
-               if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
+               if (Common.AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
                {
-                    Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
-                    Common.s_CurrentCalculationFindBestFriendFeature = "Find Best Friend";
+                    Common.AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
+                    Common.CurrentCalculationFindBestFriendFeature = "Find Best Friend";
                     new Thread(findBestFriend).Start();
                }
                else
                {
-                    this.Invoke(new Action(() => MessageBox.Show($"{ Common.s_CurrentCalculationFindBestFriendFeature} calculation is still alive")));
+                    this.Invoke(new Action(() => MessageBox.Show($"{ Common.CurrentCalculationFindBestFriendFeature} calculation is still alive")));
                }
           }
 
@@ -76,20 +76,20 @@ namespace FacebookFeatures_UI
                     this.Invoke(new Action(() => MessageBox.Show(Common.NoConnectionToFacebook)));
                }
 
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
+               Common.AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
           }
 
           private void buttonCreateBirthdayEvent_Click(object sender, EventArgs e)
           {
-               if (Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
+               if (Common.AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature == 0)
                {
-                    Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
-                    Common.s_CurrentCalculationFindBestFriendFeature = "Create Event";
+                    Common.AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature++;
+                    Common.CurrentCalculationFindBestFriendFeature = "Create Event";
                     new Thread(createEvent).Start();
                }
                else
                {
-                    this.Invoke(new Action(() => MessageBox.Show($"{ Common.s_CurrentCalculationFindBestFriendFeature} calculation is still alive")));
+                    this.Invoke(new Action(() => MessageBox.Show($"{ Common.CurrentCalculationFindBestFriendFeature} calculation is still alive")));
                }
           }
 
@@ -112,7 +112,7 @@ namespace FacebookFeatures_UI
                     this.Invoke(new Action(() => MessageBox.Show(Common.NoConnectionToFacebook)));
                }
 
-               Common.s_AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
+               Common.AmountOfAntoherThanMainThreadAliveThreadsFindBestFriendFeature--;
           }
 
           private void createBirthdayEvent()
