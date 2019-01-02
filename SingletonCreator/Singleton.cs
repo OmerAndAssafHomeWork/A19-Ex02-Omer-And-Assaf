@@ -12,7 +12,6 @@ namespace SingletonCreator
 
         static Singleton()
         {
-               s_Instance = null;
         }
 
         public static T Instance
