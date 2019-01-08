@@ -17,6 +17,8 @@ namespace FacebookFeatures_Engine
 
           public FacebookUser BestFriend { get; set; }
 
+        public Func<DateTime, bool> ComparerMethod { get; set; } = defaultBirthdayDateRange;
+
           public List<FacebookUser> Friends { get; set; }
 
           public string LoggedInUserId { get; set; }
@@ -76,7 +78,7 @@ namespace FacebookFeatures_Engine
                     if (i_FriendsHierarchy.ContainsKey(friend))
                     {
                          DateTime friendBirthdayDate = new DateTime(DateTime.Now.Year, int.Parse(friend.Birthday.Substring(k_MonthIndex, k_MonthLength)), int.Parse(friend.Birthday.Substring(k_DayIndex, k_DayLength)));
-                         if (birthdayMonthInRange(friendBirthdayDate))
+                         if (ComparerMethod.Invoke(friendBirthdayDate))
                          {
                               if (i_FriendsHierarchy[friend] > bestFriendcommonFriendsAmount)
                               {
@@ -212,10 +214,10 @@ namespace FacebookFeatures_Engine
                return firstFriendBirthdayDate < secondFriendBirthdayDate ? i_FirstFriend : i_SecondFriend;
           }
 
-          private bool birthdayMonthInRange(DateTime i_FriendBirthdayDate)
-          {
-               return (i_FriendBirthdayDate - DateTime.Now).TotalDays <= 120;
-          }
+        private static bool defaultBirthdayDateRange(DateTime i_FriendBirthdayDate)
+        {
+            return (i_FriendBirthdayDate - DateTime.Now).TotalDays == 0;
+        }
 
           public string GetBestFriendFullName()
           {

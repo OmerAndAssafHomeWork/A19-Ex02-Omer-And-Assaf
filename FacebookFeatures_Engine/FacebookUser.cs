@@ -1,10 +1,12 @@
 ﻿using System;
 using FacebookWrapper.ObjectModel;
 using Facebook;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace FacebookFeatures_Engine
 {
-     public class FacebookUser
+     public class FacebookUser : IEnumerable<User>
      {
           private User m_FacebookUser;
 
@@ -14,20 +16,16 @@ namespace FacebookFeatures_Engine
 
           public string MostTaggedUser { get; set; }
 
-          public FacebookUser(User i_FacebookUser)
+        private readonly FacebookObjectCollection<User> r_Friends;
+
+        public FacebookUser(User i_FacebookUser)
           {
                m_FacebookUser = i_FacebookUser;
+            r_Friends = m_FacebookUser.Friends;
           }
 
-          public FacebookObjectCollection<User> Friends
-          {
-               get
-               {
-                    return m_FacebookUser.Friends;
-               }
-          }
 
-          public string FirstName
+        public string FirstName
           {
                get
                {
@@ -147,5 +145,18 @@ namespace FacebookFeatures_Engine
           {
                m_FacebookUser.CreateEvent_DeprecatedSinceV2(i_Name, i_StartTime, i_EndTime, i_Description, i_Location, i_PrivacyType, i_PlaceID);
           }
-     }
+
+        public IEnumerator<User> GetEnumerator()
+        {
+            foreach (User friend in r_Friends)
+            {
+                yield return friend;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+    }
 }

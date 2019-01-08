@@ -60,7 +60,8 @@ namespace FacebookFeatures_UI
 
                if (m_EngineManager.UserConnected())
                {
-                    FacebookUser bestFriend = m_EngineManager.FindBestFriend();
+                m_EngineManager.SetBirthdayInRangeMethod(birthdayDate =>(birthdayDate - DateTime.Now).TotalDays <= 120);
+                FacebookUser bestFriend = m_EngineManager.FindBestFriend();
                     if (bestFriend != null)
                     {
                          facebookUserBindingSource.DataSource = bestFriend;

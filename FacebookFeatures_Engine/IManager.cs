@@ -5,64 +5,66 @@ using System.Text;
 
 namespace FacebookFeatures_Engine
 {
-     public interface IManager
-     {
-          string GetFriendFirstName(int i_FriendIndex);
+    public interface IManager
+    {
+        string GetFriendFirstName(int i_FriendIndex);
 
-          List<string> GetFriends();
+        List<string> GetFriends();
 
-          bool SetPrevPictureAlbumIndex();
+        bool SetPrevPictureAlbumIndex();
 
-          bool SetPrevPlaceHolderIndex();
+        bool SetPrevPlaceHolderIndex();
 
-          bool SetNextCheckinIndex(int i_FriendIndex);
+        bool SetNextCheckinIndex(int i_FriendIndex);
 
-          bool SetNextPostIndex(int i_FriendIndex);
+        bool SetNextPostIndex(int i_FriendIndex);
 
-          bool SetNextTagIndex(int i_FriendIndex);
+        bool SetNextTagIndex(int i_FriendIndex);
 
-          bool SetNextAlbumIndex(int i_FriendIndex);
+        bool SetNextAlbumIndex(int i_FriendIndex);
 
-          bool SetNextPictureAlbumIndex(int i_FriendIndex);
+        bool SetNextPictureAlbumIndex(int i_FriendIndex);
 
-          string GetPost(int i_FriendIndex, ref string io_PictureURL);
+        string GetPost(int i_FriendIndex, ref string io_PictureURL);
 
-          string GetCheckin(int i_FriendIndex);
+        string GetCheckin(int i_FriendIndex);
 
-          string GetTag(int i_FriendIndex);
+        string GetTag(int i_FriendIndex);
 
-          void InitialAlbumIndexes();
+        void InitialAlbumIndexes();
 
-          string GetFriendPicture(int i_FriendIndex);
+        string GetFriendPicture(int i_FriendIndex);
 
-          string GetPictureTitle(int i_FriendIndex);
+        string GetPictureTitle(int i_FriendIndex);
 
-          string GetAlbumName(int i_FriendIndex);
+        string GetAlbumName(int i_FriendIndex);
 
-          string GetPictureFromAlbum(int i_FriendIndex);
+        string GetPictureFromAlbum(int i_FriendIndex);
 
-          void Sort(int i_Index);
+        void Sort(int i_Index);
 
-          string GetFriendBirthdayOrAgeAttribute(int i_FriendIndex, int i_SortingBySelectedIndex);
+        string GetFriendBirthdayOrAgeAttribute(int i_FriendIndex, int i_SortingBySelectedIndex);
 
-          FacebookUser FindBestFriend();
+        FacebookUser FindBestFriend();
 
-          string GetBestFriendFullName();
+        string GetBestFriendFullName();
 
-          string GetBestFriendBirthdayDate();
+        string GetBestFriendBirthdayDate();
 
-          bool IsBestFriendExist();
+        bool IsBestFriendExist();
 
-          void CreateEvent(string i_Description, string i_Location);
+        void CreateEvent(string i_Description, string i_Location);
 
-          string GetBestFriendGender();
+        string GetBestFriendGender();
 
-          void LoginUser();
+        void LoginUser();
 
-          void LogoutUser();
+        void LogoutUser();
 
-          string GetLoginUserName();
+        string GetLoginUserName();
 
-          bool UserConnected();
-     }
+        bool UserConnected();
+
+        void SetBirthdayInRangeMethod(Func<DateTime, bool> i_CompareMethod);
+    }
 }

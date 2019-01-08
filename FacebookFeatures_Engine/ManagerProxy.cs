@@ -199,5 +199,10 @@ namespace FacebookFeatures_Engine
           {
                return m_Manager.UserConnected();
           }
-     }
+
+        public void SetBirthdayInRangeMethod(Func<DateTime, bool> i_CompareMethod)
+        {
+            m_Manager.SetBirthdayInRangeMethod(i_CompareMethod);
+        }
+    }
 }

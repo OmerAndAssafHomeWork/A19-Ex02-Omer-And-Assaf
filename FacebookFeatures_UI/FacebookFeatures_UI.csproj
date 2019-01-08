@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FacebookFeatures_UI</RootNamespace>
     <AssemblyName>FacebookFeatures_UI</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FbGraphApiWrapper, Version=6.8.0.17, Culture=neutral, processorArchitecture=MSIL">
@@ -54,6 +57,12 @@
     <Compile Include="FeaturesFacade.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
+    <Compile Include="FeaturesMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FeaturesMenu.Designer.cs">
+      <DependentUpon>FeaturesMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FeaturesTypeEnum.cs" />
     <Compile Include="FindBestFriendControl.cs">
       <SubType>UserControl</SubType>
@@ -76,6 +85,9 @@
     <Compile Include="SortingFriendsControl.Designer.cs">
       <DependentUpon>SortingFriendsControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FeaturesMenu.resx">
+      <DependentUpon>FeaturesMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FindBestFriendControl.resx">
       <DependentUpon>FindBestFriendControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +107,7 @@
     <EmbeddedResource Include="SortingFriendsControl.resx">
       <DependentUpon>SortingFriendsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\FacebookFeatures_Engine.FacebookUser.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

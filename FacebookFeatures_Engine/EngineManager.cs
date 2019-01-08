@@ -262,7 +262,7 @@ namespace FacebookFeatures_Engine
           private void fetchFriends()
           {
                Friends = new List<FacebookUser>();
-               foreach (User friend in LoggedInUser.Friends)
+               foreach (User friend in LoggedInUser)
                {
                     Friends.Add(new FacebookUser(friend));
                }
@@ -275,5 +275,10 @@ namespace FacebookFeatures_Engine
                m_SortingFriendsEngine.Friends = Friends;
                m_FindBestFriendEngine.Friends = Friends;
           }
-     }
+
+        public void SetBirthdayInRangeMethod(Func<DateTime, bool> i_CompareMethod)
+        {
+            m_FindBestFriendEngine.ComparerMethod = i_CompareMethod;
+        }
+    }
 }
