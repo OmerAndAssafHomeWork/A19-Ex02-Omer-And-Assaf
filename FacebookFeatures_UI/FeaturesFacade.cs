@@ -50,18 +50,18 @@ namespace FacebookFeatures_UI
                m_FindBestFriend = new FindBestFriendControl();
           }
 
-          public void ExecuteFeature(FeaturesTypeEnum i_FeatureType)
+          public void ExecuteFeature(eFeaturesTypeEnum i_FeatureType)
           {
                switch (i_FeatureType)
                {
-                    case FeaturesTypeEnum.SortingFriends:
+                    case eFeaturesTypeEnum.SortingFriends:
                          {
                               Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature++;
                               new Thread(displaySortingFriendsFeature).Start();
                               break;
                          }
 
-                    case FeaturesTypeEnum.FindBestFriend:
+                    case eFeaturesTypeEnum.FindBestFriend:
                          {
                               new Thread(displayFindBestFriendFeature).Start();
                               break;

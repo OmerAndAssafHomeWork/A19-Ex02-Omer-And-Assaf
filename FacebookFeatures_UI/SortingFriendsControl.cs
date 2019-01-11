@@ -13,6 +13,7 @@ namespace FacebookFeatures_UI
      {
           private const int k_InitialValue = -1, k_BestFriendNotFoundIndex = -1;
           private IManager m_EngineManager = null;
+          private UserFriends m_UserFriends;
           private int m_currentFriendIndex = k_InitialValue;
           private string m_CurrentCalculationSortingFriendsFeature = null;
           private int m_SelectedIndex = k_InitialValue;
@@ -52,10 +53,10 @@ namespace FacebookFeatures_UI
 
           public void FetchFriends()
           {
-               List<string> friendsName = m_EngineManager.GetFriends();
+               m_UserFriends = new UserFriends();
                listBoxFriends.Invoke(new Action(() => m_SelectedIndex = listBoxFriends.SelectedIndex));
                listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Clear()));
-               foreach (string friendName in friendsName)
+               foreach (string friendName in m_UserFriends)
                {
                     listBoxFriends.Invoke(new Action(() => listBoxFriends.Items.Add(friendName)));
                }

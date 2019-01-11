@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FacebookFeatures_UI
 {
     public partial class FeaturesMenu : UserControl
     {
-        public event Action<FeaturesTypeEnum> SelectedFeatureNotifier;
+        public event Action<eFeaturesTypeEnum> SelectedFeatureNotifier;
 
         public FeaturesMenu()
         {
@@ -23,7 +16,7 @@ namespace FacebookFeatures_UI
         {
             if(SelectedFeatureNotifier != null)
             {
-                SelectedFeatureNotifier.Invoke(FeaturesTypeEnum.SortingFriends);
+                SelectedFeatureNotifier.Invoke(eFeaturesTypeEnum.SortingFriends);
             }
         }
 
@@ -31,7 +24,7 @@ namespace FacebookFeatures_UI
         {
             if (SelectedFeatureNotifier != null)
             {
-                SelectedFeatureNotifier.Invoke(FeaturesTypeEnum.FindBestFriend);
+                SelectedFeatureNotifier.Invoke(eFeaturesTypeEnum.FindBestFriend);
             }
         }
     }

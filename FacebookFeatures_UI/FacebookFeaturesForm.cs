@@ -17,10 +17,10 @@ namespace FacebookFeatures_UI
             pictureBoxLoginStatus.BackgroundImageLayout = ImageLayout.Stretch;
             m_FeatureFacade = new FeaturesFacade(panelFacebookAppScreen);
             featuresMenuPanel.Controls.Add(m_FeautresMenu);
-            m_FeautresMenu.SelectedFeatureNotifier += new Action<FeaturesTypeEnum>(this.executeFeature);
+            m_FeautresMenu.SelectedFeatureNotifier += new Action<eFeaturesTypeEnum>(this.executeFeature);
         }
 
-        private void executeFeature(FeaturesTypeEnum i_FeatureType)
+        private void executeFeature(eFeaturesTypeEnum i_FeatureType)
         {
             m_FeatureFacade.ExecuteFeature(i_FeatureType);
         }

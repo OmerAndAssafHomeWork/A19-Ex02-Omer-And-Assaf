@@ -85,6 +85,7 @@
     <Compile Include="SortingFriendsControl.Designer.cs">
       <DependentUpon>SortingFriendsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFriends.cs" />
     <EmbeddedResource Include="FeaturesMenu.resx">
       <DependentUpon>FeaturesMenu.cs</DependentUpon>
     </EmbeddedResource>
