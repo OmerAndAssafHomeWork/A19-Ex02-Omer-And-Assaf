@@ -3,9 +3,10 @@ using System.Windows.Forms;
 
 namespace FacebookFeatures_UI
 {
-    public partial class FeaturesMenu : UserControl
+     public delegate void SelectedFeatureDelegate(eFeaturesTypeEnum i_FeaturesTypeEnum);
+     public partial class FeaturesMenu : UserControl
     {
-        public event Action<eFeaturesTypeEnum> SelectedFeatureNotifier;
+        public event SelectedFeatureDelegate SelectedFeatureNotifier;
 
         public FeaturesMenu()
         {
