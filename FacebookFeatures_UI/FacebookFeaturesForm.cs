@@ -10,6 +10,7 @@ namespace FacebookFeatures_UI
     {
         private FeaturesFacade m_FeatureFacade;
         private FeaturesMenu m_FeautresMenu = new FeaturesMenu();
+
         public FacebookFeaturesForm()
         {
             InitializeComponent();

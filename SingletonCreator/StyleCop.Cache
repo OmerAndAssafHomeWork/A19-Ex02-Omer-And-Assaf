@@ -1,10 +1,13 @@
 <stylecopresultscache>
   <version>12</version>
+  <project key="-1752431517">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="Singleton.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2018/03/28 19:31:16.771</styleCop>
       <settingsFile>2018/03/31 10:58:37.077</settingsFile>
-      <sourceFile>2019/01/02 21:19:01.723</sourceFile>
+      <sourceFile>2019/01/20 21:33:00.625</sourceFile>
       <parser>2018/03/28 19:31:16.771</parser>
       <StyleCop.CSharp.DocumentationRules>2018/03/28 19:31:16.771</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>-1008151971</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -29,7 +32,4 @@
       </violation>
     </violations>
   </sourcecode>
-  <project key="-1752431517">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
 </stylecopresultscache>

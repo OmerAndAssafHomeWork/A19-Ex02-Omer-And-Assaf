@@ -1,8 +1,8 @@
 ==========================Exercise Checking Report==========================
-Exercise No...........: 2
+Exercise No...........: 3
 First Student Details.: 205706278 - Omer Blechman
 Second Student Details: 311305098 - Assaf Avrahamoff
-Delivery Date.........: 2 - January - 2018
+Delivery Date.........: 20 - January - 2018
 Delivered In Delay....: No.
 Delay Reason..........: 
 Comments..............: No.

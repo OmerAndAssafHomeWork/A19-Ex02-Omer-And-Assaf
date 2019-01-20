@@ -3,8 +3,9 @@ using System.Windows.Forms;
 
 namespace FacebookFeatures_UI
 {
-     public delegate void SelectedFeatureDelegate(eFeaturesTypeEnum i_FeaturesTypeEnum);
-     public partial class FeaturesMenu : UserControl
+    public delegate void SelectedFeatureDelegate(eFeaturesTypeEnum i_FeaturesTypeEnum);
+
+    public partial class FeaturesMenu : UserControl
     {
         public event SelectedFeatureDelegate SelectedFeatureNotifier;
 
@@ -15,7 +16,7 @@ namespace FacebookFeatures_UI
 
         private void buttonSortingFriends_Click(object sender, EventArgs e)
         {
-            if(SelectedFeatureNotifier != null)
+            if (SelectedFeatureNotifier != null)
             {
                 SelectedFeatureNotifier.Invoke(eFeaturesTypeEnum.SortingFriends);
             }

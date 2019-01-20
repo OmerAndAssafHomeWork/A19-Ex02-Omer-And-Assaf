@@ -5,9 +5,9 @@ using System.Text;
 
 namespace FacebookFeatures_UI
 {
-     public enum eFeaturesTypeEnum
-     {
-          SortingFriends = 0,
-          FindBestFriend = 1
-     }
+    public enum eFeaturesTypeEnum
+    {
+        SortingFriends = 0,
+        FindBestFriend = 1
+    }
 }
