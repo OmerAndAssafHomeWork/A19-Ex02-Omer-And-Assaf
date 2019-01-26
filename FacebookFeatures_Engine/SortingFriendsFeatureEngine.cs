@@ -293,12 +293,6 @@ namespace FacebookFeatures_Engine
                         break;
                     }
 
-                case eSortingBy.MostTags:
-                    {
-                        Friends.Sort(tagsComparison);
-                        break;
-                    }
-
                 case eSortingBy.MostAlbums:
                     {
                         Friends.Sort(albumsComparison);

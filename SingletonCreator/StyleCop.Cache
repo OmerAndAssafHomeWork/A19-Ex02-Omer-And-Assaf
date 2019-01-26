@@ -1,8 +1,5 @@
 <stylecopresultscache>
   <version>12</version>
-  <project key="-1752431517">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="Singleton.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2018/03/28 19:31:16.771</styleCop>
@@ -32,4 +29,7 @@
       </violation>
     </violations>
   </sourcecode>
+  <project key="-1752431517">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

@@ -193,12 +193,6 @@ namespace FacebookFeatures_UI
                         setCheckInsAttributes();
                         break;
                     }
-
-                case eSortingBy.MostTags:
-                    {
-                        setTagsAttributes();
-                        break;
-                    }
             }
 
             Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
@@ -409,6 +403,7 @@ namespace FacebookFeatures_UI
             }
             catch (Exception)
             {
+                Common.AmountOfAntoherThanMainThreadAliveThreadsSortingFriendsFeature--;
                 this.Invoke(new Action(() => MessageBox.Show(Common.FacebookError)));
             }
         }

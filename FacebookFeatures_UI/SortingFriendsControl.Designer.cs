@@ -113,7 +113,6 @@
             "Birthday",
             "Age",
             "Most Posts Amount",
-            "Most Tagged Photos Amount",
             "Most CheckIns Amount",
             "Most Albums"});
             this.comboBoxSortingOptions.Location = new System.Drawing.Point(38, 39);

@@ -13,7 +13,6 @@ namespace eSortingByEnum
         Birthday,
         Age,
         MostPosts,
-        MostTags,
         MostCheckIns,
         MostAlbums
     }
